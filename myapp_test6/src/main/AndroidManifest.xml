@@ -9,11 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
+            android:name=".JoinActivity"
+            android:exported="true"
+             />
+        <activity
             android:name=".LoginFormActivity"
             android:exported="true" />
         <activity
             android:name=".IntroActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +26,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"
+            />
     </application>
 
 </manifest>
