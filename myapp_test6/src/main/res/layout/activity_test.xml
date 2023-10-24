@@ -20,12 +20,12 @@
             android:id="@+id/showBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test1"/>
+            android:text="보여주기"/>
         <Button
             android:id="@+id/hideBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test2"/>
+            android:text="사라지기"/>
 
         <LinearLayout
             android:layout_width="match_parent"
