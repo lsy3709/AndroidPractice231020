@@ -29,6 +29,12 @@ class Test8Activity : AppCompatActivity() {
             Toast.makeText(this@Test8Activity,"test !!!!",Toast.LENGTH_SHORT).show()
         }
 
+        //롱 클릭 이벤트 추가하기.
+        activityTest8Binding.longBtn.setOnLongClickListener {
+            Toast.makeText(this@Test8Activity,"Long Clicked!!!!",Toast.LENGTH_SHORT).show()
+            true
+        }
+
     }
     ////////////////////////////////////////////////////////////////////////////////////
     override fun onTouchEvent(event: MotionEvent?): Boolean {
