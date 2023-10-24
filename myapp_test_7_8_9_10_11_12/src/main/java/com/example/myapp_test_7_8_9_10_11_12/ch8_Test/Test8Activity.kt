@@ -25,14 +25,21 @@ class Test8Activity : AppCompatActivity() {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when(event?.action) {
             MotionEvent.ACTION_DOWN -> {
-                Log.d(TAG,"touch down event")
+                Log.d(TAG,"touch down event x:${event.x},event rawX:${event.rawX}, " +
+                        "event y:${event.y},event rawY:${event.rawY}  ")
                 Toast.makeText(this@Test8Activity,"touch down event",Toast.LENGTH_SHORT).show()
             }
             MotionEvent.ACTION_UP -> {
-                Log.d(TAG,"touch up event")
+                Log.d(TAG,"touch up event x:${event.x},event rawX:${event.rawX}, " +
+                        "event y:${event.y},event rawY:${event.rawY}  ")
                 Toast.makeText(this@Test8Activity,"touch up event",Toast.LENGTH_SHORT).show()
             }
-        }
+            MotionEvent.ACTION_MOVE -> {
+                Log.d(TAG,"touch move event x:${event.x},event rawX:${event.rawX}, " +
+                        "event y:${event.y},event rawY:${event.rawY}  ")
+                Toast.makeText(this@Test8Activity,"touch move event",Toast.LENGTH_SHORT).show()
+
+            }            }
         return super.onTouchEvent(event)
 
 
