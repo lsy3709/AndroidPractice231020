@@ -18,7 +18,7 @@
         >
         <Button
             android:id="@+id/showBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="보여주기"/>
         <Button
@@ -34,8 +34,11 @@
 
             <ImageView
                 android:id="@+id/profileImg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:maxWidth="110dp"
+                android:maxHeight="110dp"
+
                 android:src="@drawable/larva"/>
             <LinearLayout
                 android:layout_width="200dp"
@@ -47,17 +50,36 @@
                     android:layout_height="50dp"
                     android:text="이상용"
                     android:textSize="20sp"
-                    android:layout_marginLeft="5dp"></TextView>
+                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="20dp"></TextView>
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:text="닉네임 : 서준태양파파"
                     android:textSize="20sp"
+                    android:textColor="#E91E63"
+                    android:textStyle="italic"
+                    android:fontFamily="@font/bmyeonsung"
                     android:layout_marginLeft="5dp"></TextView>
 
             </LinearLayout>
 
+
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="http://www.naver.com"
+            android:textSize="20sp"
+            android:autoLink="web"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화번호 : +82 10-1234-1234"
+            android:textSize="20sp"
+            android:autoLink="phone"/>
 
     </LinearLayout>
 
