@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ch7_Test.TestActivity">
+
     <LinearLayout
         android:id="@+id/lay1"
         android:layout_width="match_parent"
@@ -95,7 +102,11 @@
         android:layout_height="200dp"
         app:layout_constraintTop_toBottomOf="@id/lay3">
 
-
+        <Button
+            android:id="@+id/frameBtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="프레임 테스트"></Button>
 
         <ImageView
             android:id="@+id/img1"
@@ -105,15 +116,34 @@
 
         </ImageView>
 
-        <Button
-            android:id="@+id/frameBtn"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="프레임 테스트"></Button>
-
-
     </FrameLayout>
+
+    <GridLayout
+        android:id="@+id/lay5"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="horizontal"
+        android:columnCount="3"
+        android:rowCount="2"
+        app:layout_constraintTop_toBottomOf="@id/lay4">
+
+        <Button android:text="1"/>
+        <Button android:text="2"/>
+        <Button android:text="3"/>
+        <Button android:text="4"/>
+        <Button android:text="5"/>
+        <Button android:text="6"/>
+        <Button android:text="7"/>
+        <Button android:text="8"/>
+        <Button android:text="9"/>
+        <Button android:text="10"/>
+        <Button android:text="11"/>
+
+
+
+    </GridLayout>
 
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
