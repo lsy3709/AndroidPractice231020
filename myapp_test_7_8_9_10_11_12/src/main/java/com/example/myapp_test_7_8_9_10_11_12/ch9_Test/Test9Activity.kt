@@ -1,11 +1,13 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch9_Test
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowMetrics
+import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -87,6 +89,8 @@ class Test9Activity : AppCompatActivity() {
                     override fun onToastHidden() {
                         super.onToastHidden()
                         Log.d("lsy","토스트 후처리 작업: 사라질 경우 ")
+                        val intent = Intent(this@Test9Activity,TestActivity::class.java)
+                        startActivity(intent)
                     }
 
                     override fun onToastShown() {
@@ -97,6 +101,18 @@ class Test9Activity : AppCompatActivity() {
             )
             toast.show()
         }
+
+        // 날짜 다이얼 로그 출력 해보기.
+        activityTest9Binding.dateBtn?.setOnClickListener {
+            DatePickerDialog(this@Test9Activity , object : DatePickerDialog.OnDateSetListener {
+                override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                    Log.d("lsy","년도: ${year}년, 월: ${month+1}월, 일: ${dayOfMonth}"  )
+                    Toast.makeText(this@Test9Activity,"년도: ${year}년, 월: ${month+1}월, 일: ${dayOfMonth}"
+                    ,Toast.LENGTH_SHORT).show()
+                }
+            },2023,9,25).show()
+        }
+
 
     }
 }
