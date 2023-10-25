@@ -103,7 +103,7 @@ class Test10_2Activity : AppCompatActivity() {
             }
             val replyIntent = Intent(this@Test10_2Activity, ReplyReceiver::class.java)
             val replyPendingIntent = PendingIntent.getBroadcast(this@Test10_2Activity,30,
-                replyIntent,PendingIntent.FLAG_IMMUTABLE)
+                replyIntent,PendingIntent.FLAG_MUTABLE)
             // 답장 액션 추가하기.
             builder.addAction(
                 NotificationCompat.Action.Builder(
