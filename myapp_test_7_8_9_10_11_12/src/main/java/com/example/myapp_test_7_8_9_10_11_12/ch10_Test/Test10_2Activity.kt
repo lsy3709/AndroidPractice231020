@@ -95,7 +95,7 @@ class Test10_2Activity : AppCompatActivity() {
             )
 
             // 특정 액션 추가 부분인데, 위에는 기본 액션 1개를 추개했고, 답장이라는 추가 액션 넣기.
-            val KEY_TEXT_REPLY = " key_text_reply"
+            val KEY_TEXT_REPLY = "key_text_reply"
             val replyLabel : String = "답장"
             var remoteInput : RemoteInput = RemoteInput.Builder(KEY_TEXT_REPLY).run {
                 setLabel(replyLabel)
