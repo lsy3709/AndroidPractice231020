@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.ch7_Test.TestActivity
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTest9Binding
 
@@ -23,6 +24,8 @@ class Test9Activity : AppCompatActivity() {
             val intent = Intent(this@Test9Activity,TestActivity::class.java)
             startActivity(intent)
         }
+        // 소스 코드로 , 정적 자원 사용하기 . 문자열.
+        activityTest9Binding.textView2.text = getString(R.string.app_intro)
 
 
     }
