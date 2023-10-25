@@ -77,7 +77,22 @@ class Test10_2Activity : AppCompatActivity() {
             val intent = Intent(this@Test10_2Activity,Test10_1Activity::class.java )
             val pendingIntent = PendingIntent.getActivity(this@Test10_2Activity,10,intent,
                 PendingIntent.FLAG_IMMUTABLE)
-            builder.setContentIntent(pendingIntent)
+            // 2번째 액션 인텐트 테스트 하기위해 잠시 주석.
+            //builder.setContentIntent(pendingIntent)
+
+            // 특정 액션 추가 기능 넣기.
+            val actionIntent = Intent(this@Test10_2Activity,OneReceiver::class.java)
+            val actionPendingIntent = PendingIntent.getBroadcast(this@Test10_2Activity,20,
+                actionIntent,PendingIntent.FLAG_IMMUTABLE)
+            builder.addAction(
+                NotificationCompat.Action.Builder(
+                    android.R.drawable.stat_notify_more,
+                    "Action",
+                    actionPendingIntent
+                ).build()
+            )
+
+
 
             //알림 발생 시키기
             manager.notify(11,builder.build())
