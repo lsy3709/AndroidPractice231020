@@ -232,8 +232,14 @@ Log.d("lsy","${items[which]}이 ${if(isChecked) "선택됨"  else "선택해제�
                 setPositiveButton("수락",null)
                 setNegativeButton("취소",null)
                 setNeutralButton("더보기",null)
+                // 뒤로가기 버튼을 눌려도 ,알림창 닫아짐. 기본값.
+                // 옵션으로 false 설정시, 창 닫힘 방지함.
+                setCancelable(false)
                 show()
-            }
+                // 다이얼로그창이 나타났을 경우, 창 밖을 클릭시
+                // 기본이 알림창을 닫기가 기본인데, false
+                //  창 밖을 클릭해도 창이 닫히지 않음.
+            }.setCanceledOnTouchOutside(false)
         }
 
 
