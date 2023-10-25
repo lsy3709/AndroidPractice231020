@@ -3,6 +3,7 @@ package com.example.myapp_test_7_8_9_10_11_12.ch9_Test
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -131,7 +132,7 @@ class Test9Activity : AppCompatActivity() {
             },14,21,true).show()
         }
 
-        // 커스텀 마이징 한 다이얼로그 출력 해보기.
+        // 커스텀 마이징 한 다이얼로그 출력 해보기. 기본값
         activityTest9Binding.customDialogBtn?.setOnClickListener {
             AlertDialog.Builder(this@Test9Activity).run {
                 setTitle("커스텀 다이얼로그")
@@ -144,6 +145,28 @@ class Test9Activity : AppCompatActivity() {
             }
         }
 
+        // 목록 요소 선택 1.
+        val items = arrayOf<String>("사과","바나나","수박","파인애플")
+
+        activityTest9Binding.customDialogBtn2?.setOnClickListener {
+            AlertDialog.Builder(this@Test9Activity).run {
+                setTitle("커스텀 다이얼로그2")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setMessage("테스트 할까요?")
+                // 추가 사항
+                val objectListener = object : DialogInterface.OnClickListener {
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        Log.d("lsy","선택한 과일 : ${items[which]}")
+                    }
+                }
+                setItems(items,objectListener)
+
+                setPositiveButton("수락",null)
+                setNegativeButton("취소",null)
+                setNeutralButton("더보기",null)
+                show()
+            }
+        }
 
     }
 }

@@ -22,6 +22,12 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
+            android:id="@+id/customDialogBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="커스텀 다이얼 로그 테스트 목록 요소 선택 "/>
+
+        <Button
             android:id="@+id/customDialogBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
