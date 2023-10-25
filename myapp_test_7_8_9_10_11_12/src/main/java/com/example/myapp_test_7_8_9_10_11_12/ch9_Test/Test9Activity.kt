@@ -201,5 +201,41 @@ Log.d("lsy","${items[which]}이 ${if(isChecked) "선택됨"  else "선택해제�
             }
         }
 
+        //목록 요소 선택3, 라디오
+        activityTest9Binding.customDialogBtn4?.setOnClickListener {
+            AlertDialog.Builder(this@Test9Activity).run {
+                setTitle("커스텀 다이얼로그4")
+                setIcon(android.R.drawable.ic_dialog_info)
+                // 체크박스용 클릭 리스너 ,
+//                val objectListener = object : DialogInterface.OnMultiChoiceClickListener {
+//                    override fun onClick(dialog: DialogInterface?, which: Int, isChecked: Boolean) {
+//                        Log.d("lsy","${items[which]}이 ${if(isChecked) "선택됨"  else "선택해제됨"}")
+//                    }
+//                }
+
+                // 라디오 클릭 리스너
+                val objectListener = object : DialogInterface.OnClickListener {
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        Log.d("lsy","선택한 과일 : ${items[which]}")
+                    }
+                }
+                // 목록요소 1
+                //setItems(items,objectListener)
+
+                // 목록요소2 , 체크박스
+//                setMultiChoiceItems(items, booleanArrayOf(true,true,false,false),objectListener)
+
+                // 목록 요소3, 라디오
+                setSingleChoiceItems(items,1,objectListener )
+
+
+                setPositiveButton("수락",null)
+                setNegativeButton("취소",null)
+                setNeutralButton("더보기",null)
+                show()
+            }
+        }
+
+
     }
 }
