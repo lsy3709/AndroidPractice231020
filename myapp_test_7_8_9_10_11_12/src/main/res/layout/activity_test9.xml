@@ -14,6 +14,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+        <Button
+            android:id="@+id/testToastBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="토스트 보여지고 , 사라지고 후처리 테스트"
+            style="@style/MyTextCss"/>
 
         <ImageView
             android:id="@+id/testImgRetangle"

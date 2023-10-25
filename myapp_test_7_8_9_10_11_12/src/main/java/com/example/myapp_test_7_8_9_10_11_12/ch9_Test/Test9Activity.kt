@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.WindowMetrics
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.myapp_test_7_8_9_10_11_12.R
@@ -19,6 +20,7 @@ class Test9Activity : AppCompatActivity() {
     // 단, build.gradle 에서 설정을 반드시 하고, (모듈버전에서)
     //예) activity_test9 ->ActivityTest9Binding
     lateinit var activityTest9Binding: ActivityTest9Binding
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_test9)
@@ -62,6 +64,8 @@ class Test9Activity : AppCompatActivity() {
         // 예2) 특정 앱에 접근을 해서, 데이터를 가져오는 작업 (= 후처리)
         // 설정 1)
         val requestPermissionLauncher = registerForActivityResult(
+            // 이부분이 시스템에서 정한둔 함수들이 있음. 현재, 허가를 확인 하는 용도.
+            // 나중에, 이미지등 데이터에 접근해서, 해당 데이터를 가지고 오는 용도로 사용할 예정.
             ActivityResultContracts.RequestPermission() ) {
             isGranted ->
             if(isGranted) {
@@ -70,10 +74,29 @@ class Test9Activity : AppCompatActivity() {
                 Log.d("lsy","권한이 승인안됨 , call back 후처리 요청. ")
             }
         }
-        // 이용
+        // 이용 -> 호출, 위에 설정으로
         requestPermissionLauncher.launch("android.permission.ACCESS_FINE_LOCATION")
 
+        activityTest9Binding.testToastBtn?.setOnClickListener {
+            // 기존 사용법
+//            Toast.makeText(this@Test9Activity,"후처리 확인중", Toast.LENGTH_LONG).show()
+            // 콜백을 익명 클래스를 추가해서, 사라지거나, 또는 나타나거나 했을 경우 추가 로직 넣기.
+            val toast = Toast.makeText(this@Test9Activity,"후처리 확인중", Toast.LENGTH_LONG)
+            toast.addCallback(
+                object : Toast.Callback() {
+                    override fun onToastHidden() {
+                        super.onToastHidden()
+                        Log.d("lsy","토스트 후처리 작업: 사라질 경우 ")
+                    }
 
+                    override fun onToastShown() {
+                        super.onToastShown()
+                        Log.d("lsy","토스트 후처리 작업: 나타날 경우 ")
+                    }
+                }
+            )
+            toast.show()
+        }
 
     }
 }
