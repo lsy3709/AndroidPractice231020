@@ -152,7 +152,7 @@ class Test9Activity : AppCompatActivity() {
             AlertDialog.Builder(this@Test9Activity).run {
                 setTitle("커스텀 다이얼로그2")
                 setIcon(android.R.drawable.ic_dialog_info)
-                setMessage("테스트 할까요?")
+//                setMessage("테스트 할까요?")
                 // 추가 사항
                 val objectListener = object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, which: Int) {
@@ -160,6 +160,7 @@ class Test9Activity : AppCompatActivity() {
                     }
                 }
                 setItems(items,objectListener)
+
 
                 setPositiveButton("수락",null)
                 setNegativeButton("취소",null)
