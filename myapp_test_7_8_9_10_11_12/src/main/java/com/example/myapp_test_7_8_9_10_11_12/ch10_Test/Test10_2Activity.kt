@@ -2,6 +2,8 @@ package com.example.myapp_test_7_8_9_10_11_12.ch10_Test
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Intent
 import android.graphics.Color
 import android.media.AudioAttributes
 import android.media.RingtoneManager
@@ -70,6 +72,12 @@ class Test10_2Activity : AppCompatActivity() {
             builder.setWhen(System.currentTimeMillis())
             builder.setContentTitle("알림 제목")
             builder.setContentText("알림의 메세지 내용")
+
+            // 알림 메세지 창 클릭시, 페이지 이동. 기존에 사용했던 , 인텐트 방식과 비슷.
+            val intent = Intent(this@Test10_2Activity,Test10_1Activity::class.java )
+            val pendingIntent = PendingIntent.getActivity(this@Test10_2Activity,10,intent,
+                PendingIntent.FLAG_IMMUTABLE)
+            builder.setContentIntent(pendingIntent)
 
             //알림 발생 시키기
             manager.notify(11,builder.build())
