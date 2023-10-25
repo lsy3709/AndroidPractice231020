@@ -169,5 +169,37 @@ class Test9Activity : AppCompatActivity() {
             }
         }
 
+        // 목록 요소 선택 2.
+        activityTest9Binding.customDialogBtn3?.setOnClickListener {
+            AlertDialog.Builder(this@Test9Activity).run {
+                setTitle("커스텀 다이얼로그3")
+                setIcon(android.R.drawable.ic_dialog_info)
+//                setMessage("테스트 할까요?")
+                // 추가 사항
+//                val objectListener = object : DialogInterface.OnClickListener {
+//                    override fun onClick(dialog: DialogInterface?, which: Int) {
+//                        Log.d("lsy","선택한 과일 : ${items[which]}")
+//                    }
+//                }
+                // 체크박스용 클릭 리스너 ,
+                val objectListener = object : DialogInterface.OnMultiChoiceClickListener {
+                    override fun onClick(dialog: DialogInterface?, which: Int, isChecked: Boolean) {
+Log.d("lsy","${items[which]}이 ${if(isChecked) "선택됨"  else "선택해제됨"}")
+                    }
+                }
+                // 목록요소 1
+                //setItems(items,objectListener)
+
+                // 목록요소2 , 체크박스
+                setMultiChoiceItems(items, booleanArrayOf(true,true,false,false),objectListener)
+
+
+                setPositiveButton("수락",null)
+                setNegativeButton("취소",null)
+                setNeutralButton("더보기",null)
+                show()
+            }
+        }
+
     }
 }
