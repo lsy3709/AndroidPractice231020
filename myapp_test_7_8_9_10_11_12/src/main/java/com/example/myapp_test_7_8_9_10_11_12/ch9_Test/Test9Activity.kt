@@ -6,6 +6,8 @@ import android.app.TimePickerDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -242,6 +244,13 @@ Log.d("lsy","${items[which]}이 ${if(isChecked) "선택됨"  else "선택해제�
             }.setCanceledOnTouchOutside(false)
         }
 
+        // 소리 확인 테스트
+        activityTest9Binding.soundTestBtn?.setOnClickListener {
+            val notification: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            val ringtone = RingtoneManager.getRingtone(applicationContext,notification)
+            ringtone.play()
+
+        }
 
     }
 }
