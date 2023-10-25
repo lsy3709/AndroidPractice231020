@@ -109,6 +109,8 @@ class Test9Activity : AppCompatActivity() {
                     Log.d("lsy","년도: ${year}년, 월: ${month+1}월, 일: ${dayOfMonth}"  )
                     Toast.makeText(this@Test9Activity,"년도: ${year}년, 월: ${month+1}월, 일: ${dayOfMonth}"
                     ,Toast.LENGTH_SHORT).show()
+                    // 텍스트 뷰에 설정해보기.
+                    activityTest9Binding.dateTextView?.text = "${year}년 ${month+1}월 ${dayOfMonth}일"
                 }
             },2023,9,25).show()
         }

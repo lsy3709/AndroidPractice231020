@@ -21,6 +21,13 @@
             android:layout_height="wrap_content"
             android:text="날짜 다이얼로그 확인"/>
 
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            style="@style/MyTextCss"/>
+
         <Button
             android:id="@+id/testToastBtn"
             android:layout_width="wrap_content"
