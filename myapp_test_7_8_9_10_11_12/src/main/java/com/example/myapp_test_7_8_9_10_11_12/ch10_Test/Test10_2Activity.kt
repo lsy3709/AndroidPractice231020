@@ -3,6 +3,7 @@ package com.example.myapp_test_7_8_9_10_11_12.ch10_Test
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+
 import android.content.Intent
 import android.graphics.Color
 import android.media.AudioAttributes
@@ -12,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.RemoteInput
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTest102Binding
 
 class Test10_2Activity : AppCompatActivity() {
@@ -91,6 +93,26 @@ class Test10_2Activity : AppCompatActivity() {
                     actionPendingIntent
                 ).build()
             )
+
+            // 특정 액션 추가 부분인데, 위에는 기본 액션 1개를 추개했고, 답장이라는 추가 액션 넣기.
+            val KEY_TEXT_REPLY = " key_text_reply"
+            val replyLabel : String = "답장"
+            var remoteInput : RemoteInput = RemoteInput.Builder(KEY_TEXT_REPLY).run {
+                setLabel(replyLabel)
+                build()
+            }
+            val replyIntent = Intent(this@Test10_2Activity, ReplyReceiver::class.java)
+            val replyPendingIntent = PendingIntent.getBroadcast(this@Test10_2Activity,30,
+                replyIntent,PendingIntent.FLAG_IMMUTABLE)
+            // 답장 액션 추가하기.
+            builder.addAction(
+                NotificationCompat.Action.Builder(
+                    android.R.drawable.stat_notify_more,
+                    "답장",
+                    replyPendingIntent
+                ).addRemoteInput(remoteInput).build()
+            )
+
 
 
 
