@@ -1,6 +1,7 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch9_Test
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowMetrics
 import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -113,6 +115,19 @@ class Test9Activity : AppCompatActivity() {
                     activityTest9Binding.dateTextView?.text = "${year}년 ${month+1}월 ${dayOfMonth}일"
                 }
             },2023,9,25).show()
+        }
+
+        //시간 다이얼로그 테스트 해보기.
+        activityTest9Binding.timeBtn?.setOnClickListener {
+            TimePickerDialog(this@Test9Activity, object : TimePickerDialog.OnTimeSetListener {
+                override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+                    Log.d("lsy","${hourOfDay}시, ${minute}분"  )
+                    Toast.makeText(this@Test9Activity,"${hourOfDay}시, ${minute}분"
+                        ,Toast.LENGTH_SHORT).show()
+                    // 텍스트 뷰에 설정해보기.
+                    activityTest9Binding.timeTextView?.text = "${hourOfDay}시, ${minute}분"
+                }
+            },14,21,true).show()
         }
 
 
