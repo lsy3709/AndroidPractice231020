@@ -1,5 +1,6 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch9_Test
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -128,6 +129,19 @@ class Test9Activity : AppCompatActivity() {
                     activityTest9Binding.timeTextView?.text = "${hourOfDay}시, ${minute}분"
                 }
             },14,21,true).show()
+        }
+
+        // 커스텀 마이징 한 다이얼로그 출력 해보기.
+        activityTest9Binding.customDialogBtn?.setOnClickListener {
+            AlertDialog.Builder(this@Test9Activity).run {
+                setTitle("커스텀 다이얼로그")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setMessage("테스트 할까요?")
+                setPositiveButton("수락",null)
+                setNegativeButton("취소",null)
+                setNeutralButton("더보기",null)
+                show()
+            }
         }
 
 
