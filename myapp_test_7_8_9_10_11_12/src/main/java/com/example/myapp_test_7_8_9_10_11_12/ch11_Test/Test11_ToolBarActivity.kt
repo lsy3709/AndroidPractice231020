@@ -39,7 +39,7 @@ class Test11_ToolBarActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.toolbar_menu,menu)
 
         // 검색 뷰에, 이벤트 추가하기.
-        val menuItem = menu?.findItem(R.id.menu_main_search)
+        val menuItem = menu?.findItem(R.id.menu_toolbar_search)
         // menuItem 의 형을 SearchView 타입으로 변환, 형변환
         // SearchView -> 자동 임포트 주의 -> 제트팩이 아닌 일반 android 로 임포트 하면 안됨.
         val searchView = menuItem?.actionView as SearchView
