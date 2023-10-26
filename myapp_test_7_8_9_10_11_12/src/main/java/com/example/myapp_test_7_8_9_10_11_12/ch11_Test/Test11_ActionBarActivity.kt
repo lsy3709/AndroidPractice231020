@@ -57,6 +57,11 @@ class Test11_ActionBarActivity : AppCompatActivity() {
             Toast.makeText(this@Test11_ActionBarActivity,"메뉴3 클릭됨",Toast.LENGTH_SHORT).show()
             true
         }
+
+        R.id.menu_main4 -> {
+            Toast.makeText(this@Test11_ActionBarActivity,"메뉴4 클릭됨",Toast.LENGTH_SHORT).show()
+            true
+        }
         // 람다식에서 return 사용 못함.
         else -> super.onOptionsItemSelected(item)
     }
