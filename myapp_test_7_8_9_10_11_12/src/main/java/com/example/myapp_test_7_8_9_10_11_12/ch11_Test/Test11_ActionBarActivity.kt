@@ -3,6 +3,8 @@ package com.example.myapp_test_7_8_9_10_11_12.ch11_Test
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTest11ActionBarBinding
@@ -37,6 +39,26 @@ class Test11_ActionBarActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main,menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    // 오버플로우 메뉴 이벤트 핸들러 추가하기.
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
+        0 -> {
+            Toast.makeText(this@Test11_ActionBarActivity,"메뉴1 클릭됨",Toast.LENGTH_SHORT).show()
+            true
+        }
+
+        1 -> {
+            Toast.makeText(this@Test11_ActionBarActivity,"메뉴2 클릭됨",Toast.LENGTH_SHORT).show()
+            true
+        }
+
+        2 -> {
+            Toast.makeText(this@Test11_ActionBarActivity,"메뉴3 클릭됨",Toast.LENGTH_SHORT).show()
+            true
+        }
+        // 람다식에서 return 사용 못함.
+        else -> super.onOptionsItemSelected(item)
     }
 
 }
