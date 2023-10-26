@@ -24,11 +24,17 @@ class Test11_FragmentActivity : AppCompatActivity() {
         // 두번째 프래그먼트
         val twoFragment = TwoFragment()
 
+        // 세번째 프래그먼트
+        val threeFragment = ThreeFragment()
+
         // 첫번째 프래그먼트 붙이기
         transaction.add(R.id.fragment1,oneFragment)
 
         // 두번째 프래그먼트 붙이기
         transaction.add(R.id.fragment2,twoFragment)
+
+        // 세번째 프래그먼트 붙이기
+        transaction.add(R.id.fragment3,threeFragment)
 
         //화면에 출력하기.
         transaction.commit()
