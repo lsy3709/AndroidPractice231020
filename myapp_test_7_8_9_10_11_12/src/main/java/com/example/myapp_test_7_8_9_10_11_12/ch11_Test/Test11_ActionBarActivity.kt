@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTest11ActionBarBinding
 
@@ -43,6 +43,7 @@ class Test11_ActionBarActivity : AppCompatActivity() {
         // 검색 뷰에, 이벤트 추가하기.
         val menuItem = menu?.findItem(R.id.menu_main_search)
         // menuItem 의 형을 SearchView 타입으로 변환, 형변환
+        // SearchView -> 자동 임포트 주의 -> 제트팩이 아닌 일반 android 로 임포트 하면 안됨.
         val searchView = menuItem?.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
