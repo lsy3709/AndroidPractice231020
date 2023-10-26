@@ -18,7 +18,13 @@ class Test11_RecyclerViewActivity : AppCompatActivity() {
         for(i in 1..10) {
             datas.add("라바 $i")
         }
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        // 기본 값으로 세로 방향 출력.
+//        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        // 가로 방향으로 출력 해보기.
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        binding.recyclerView.layoutManager = layoutManager
+
         binding.recyclerView.adapter = MyAdapter(datas)
         // 구분선 넣기, 나중에 옵션으로 배경이미지도 넣기 가능.
         binding.recyclerView.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
