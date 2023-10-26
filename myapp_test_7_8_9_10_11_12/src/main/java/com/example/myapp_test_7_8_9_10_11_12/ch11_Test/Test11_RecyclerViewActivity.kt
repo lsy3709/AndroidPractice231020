@@ -29,5 +29,11 @@ class Test11_RecyclerViewActivity : AppCompatActivity() {
         // 구분선 넣기, 나중에 옵션으로 배경이미지도 넣기 가능.
         binding.recyclerView.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
 
+        // 2번째 리사이클러 뷰 출력해보기. 기존 데이터 재사용, 뷰홀더, 마이 어댑터 재사용해보기.
+        binding.recyclerView2.layoutManager = LinearLayoutManager(this)
+        // 기존 재사용
+        binding.recyclerView2.adapter = MyAdapter(datas)
+        binding.recyclerView2.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+
     }
 }
