@@ -23,7 +23,7 @@
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
             android:name=".ch11_Test.Test11_RecyclerViewActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ch11_Test.Test11_FragmentActivity"
             android:exported="true" />
