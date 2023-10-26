@@ -38,7 +38,7 @@ class OneFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("lsy","onDestroy, ")
+        Log.d("lsy","생명주기 onDestroy, ")
     }
 
     override fun onCreateView(
