@@ -15,4 +15,8 @@
         <item name="android:fontFamily">@font/bmyeonsung</item>
     </style>
 
+    <style name="MyToolBarCss">
+        <item name="android:background">@color/main_text_color</item>
+    </style>
+
 </resources>
