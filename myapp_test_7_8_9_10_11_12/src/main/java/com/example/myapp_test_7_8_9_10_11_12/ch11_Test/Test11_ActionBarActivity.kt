@@ -29,7 +29,7 @@ class Test11_ActionBarActivity : AppCompatActivity() {
 
     }
 
-    // 액션바 클릭 이벤트 처리.
+    // 액션바  업버튼 클릭 이벤트 처리.
     override fun onSupportNavigateUp(): Boolean {
         Log.d("lsy","test")
         onBackPressed()
