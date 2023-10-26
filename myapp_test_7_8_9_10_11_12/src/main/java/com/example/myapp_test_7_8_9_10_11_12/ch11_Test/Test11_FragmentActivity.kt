@@ -18,8 +18,19 @@ class Test11_FragmentActivity : AppCompatActivity() {
         // 프래그먼트 출력하기. 연결(바인딩)
         val fragmentManager : FragmentManager = supportFragmentManager
         val transaction : FragmentTransaction = fragmentManager.beginTransaction()
+        // 첫번째 프래그먼트
         val oneFragment = OneFragment()
+
+        // 두번째 프래그먼트
+        val twoFragment = TwoFragment()
+
+        // 첫번째 프래그먼트 붙이기
         transaction.add(R.id.fragment1,oneFragment)
+
+        // 두번째 프래그먼트 붙이기
+        transaction.add(R.id.fragment2,twoFragment)
+
+        //화면에 출력하기.
         transaction.commit()
 
 
