@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.media.AudioAttributes
 import android.media.RingtoneManager
@@ -16,6 +17,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.RemoteInput
+import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTest102Binding
 import kotlin.concurrent.thread
 
@@ -124,7 +126,7 @@ class Test10_2Activity : AppCompatActivity() {
             )
 
             // 프로그레스 진행 바 확인 해보기.
-            builder.setProgress(100,0,false)
+           // builder.setProgress(100,0,false)
             thread {
                 for (i in 1..100) {
                     builder.setProgress(100,i,false)
@@ -132,6 +134,13 @@ class Test10_2Activity : AppCompatActivity() {
                     SystemClock.sleep(100)
                 }
             }
+
+            // 큰 이미지를 첨부해서 알림 보내기
+            // 안드로이드 에서 사용하는 이미지 타입 비트맵, 바이트 등.
+            val bigPicture = BitmapFactory.decodeResource(resources, R.drawable.bread)
+            val bigStyle = NotificationCompat.BigPictureStyle()
+            bigStyle.bigPicture(bigPicture)
+            builder.setStyle(bigStyle)
 
 
 
