@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.myapp_test_7_8_9_10_11_12.ch11_Test.recycler.MyAdapter
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestRecyclerDataBinding
 
@@ -43,11 +44,14 @@ class TestRecyclerDataActivity : AppCompatActivity() {
 
 
         val linearLayoutManager = LinearLayoutManager(this as Context)
-        val gridLayoutManager = GridLayoutManager(this,3,GridLayoutManager.HORIZONTAL,false)
+        val gridLayoutManager = GridLayoutManager(this,3,GridLayoutManager.HORIZONTAL,true)
+        val staggeredoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         // 리니어, 수직 , 수평 방향으로 출력
 //        recyclerView.layoutManager = linearLayoutManager // LayoutManager 설정
         // 그리드, 테이블 형식으로 출력하기.
         recyclerView.layoutManager = gridLayoutManager // LayoutManager 설정
+        // 지그 재그
+        recyclerView.layoutManager = staggeredoutManager // LayoutManager 설정
 
 
 //        val customAdapter = CustomAdapter(testDataSet)
