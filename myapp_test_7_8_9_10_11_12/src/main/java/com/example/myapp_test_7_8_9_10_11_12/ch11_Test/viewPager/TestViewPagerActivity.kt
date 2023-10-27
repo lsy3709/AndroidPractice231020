@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapp_test_7_8_9_10_11_12.ch11_Test.recycler.MyAdapter2
+import com.example.myapp_test_7_8_9_10_11_12.ch11_Test.viewPager.adapter.MyFragmentPagerAdapter
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestViewPagerBinding
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ItemPagerBinding
 
@@ -32,7 +33,7 @@ class TestViewPagerActivity : AppCompatActivity() {
 
         // 방법2 , 프래그먼트 형식으로 뷰페이저 구성.
         // 준비물, 1) 프래그먼트 형식의 어댑터 2) 요소로 사용이될 프래그먼트 3개정도 만들기.
-
+        binding.viewPager2.adapter = MyFragmentPagerAdapter(this)
 
     }
 
