@@ -19,7 +19,7 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
         super.onDraw(c, parent, state)
         c.drawBitmap(
             // 배경으로 사용할 이미지 하나
-            BitmapFactory.decodeResource(context.getResources(), R.drawable.stadium),
+            BitmapFactory.decodeResource(context.getResources(), R.drawable.shop),
             0f,
             0f,
             null
@@ -34,14 +34,14 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
         //이미지 사이즈 계산
         val dr: Drawable? =
             // 포그라운드로 사용할 이미지 하나
-            ResourcesCompat.getDrawable(context.getResources(), R.drawable.kbo, null)
+            ResourcesCompat.getDrawable(context.getResources(), R.drawable.bread, null)
         val drWidth = dr?.intrinsicWidth
         val drHeight = dr?.intrinsicHeight
         //이미지가 그려질 위치 계산
         val left = width / 2 - drWidth?.div(2) as Int
         val top = height / 2 - drHeight?.div(2) as Int
         c.drawBitmap(
-            BitmapFactory.decodeResource(context.getResources(), R.drawable.kbo),
+            BitmapFactory.decodeResource(context.getResources(), R.drawable.bread),
             left.toFloat(),
             top.toFloat(),
             null

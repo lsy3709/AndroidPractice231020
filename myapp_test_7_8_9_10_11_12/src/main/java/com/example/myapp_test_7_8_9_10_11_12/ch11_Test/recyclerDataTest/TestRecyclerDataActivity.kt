@@ -53,6 +53,9 @@ class TestRecyclerDataActivity : AppCompatActivity() {
         // 지그 재그
         recyclerView.layoutManager = staggeredoutManager // LayoutManager 설정
 
+        // 리사이클러 뷰의 꾸미기 담당 클래스를 붙이는 작업. (적용)
+        recyclerView.addItemDecoration(MyDecoration(this))
+
 
 //        val customAdapter = CustomAdapter(testDataSet)
         // 만들어 둔 어댑터를 붙이는 작업.
