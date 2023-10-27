@@ -25,8 +25,14 @@ class TestViewPagerActivity : AppCompatActivity() {
         // 외부 기능이니 디펜던시 build.gradle 에 복사후 , sync now 해서 ,
         //뷰페이저2 출력 방식 2가지, 1) 어댑터 사용방법 2) 프래그먼트 이용
 
+// 테스트 진행중 방법1) 어댑터 ,
+// 문제점은, 어댑터 구조는 똑같은데, 데이터 똑같고, 아이템의 요소의 뷰의 형식이 다름.
 //        binding.viewPager1.adapter = MyPagerAdapter(testDataSet)
         binding.viewPager1.adapter = MyAdapter2(testDataSet)
+
+        // 방법2 , 프래그먼트 형식으로 뷰페이저 구성.
+        // 준비물, 1) 프래그먼트 형식의 어댑터 2) 요소로 사용이될 프래그먼트 3개정도 만들기.
+
 
     }
 
