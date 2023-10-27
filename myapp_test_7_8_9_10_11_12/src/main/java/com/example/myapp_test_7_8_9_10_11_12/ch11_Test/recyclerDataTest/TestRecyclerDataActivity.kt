@@ -47,11 +47,11 @@ class TestRecyclerDataActivity : AppCompatActivity() {
         val gridLayoutManager = GridLayoutManager(this,3,GridLayoutManager.HORIZONTAL,true)
         val staggeredoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         // 리니어, 수직 , 수평 방향으로 출력
-//        recyclerView.layoutManager = linearLayoutManager // LayoutManager 설정
+        recyclerView.layoutManager = linearLayoutManager // LayoutManager 설정
         // 그리드, 테이블 형식으로 출력하기.
-        recyclerView.layoutManager = gridLayoutManager // LayoutManager 설정
+//        recyclerView.layoutManager = gridLayoutManager // LayoutManager 설정
         // 지그 재그
-        recyclerView.layoutManager = staggeredoutManager // LayoutManager 설정
+//        recyclerView.layoutManager = staggeredoutManager // LayoutManager 설정
 
         // 리사이클러 뷰의 꾸미기 담당 클래스를 붙이는 작업. (적용)
         recyclerView.addItemDecoration(MyDecoration(this))
