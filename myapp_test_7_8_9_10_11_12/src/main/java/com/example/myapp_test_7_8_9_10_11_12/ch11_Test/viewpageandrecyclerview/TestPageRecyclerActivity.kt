@@ -9,6 +9,7 @@ import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestPageRecycle
 
 class TestPageRecyclerActivity : AppCompatActivity() {
     lateinit var binding: ActivityTestPageRecyclerBinding
+    var newDataNumber = 11
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTestPageRecyclerBinding.inflate(layoutInflater)
@@ -32,7 +33,18 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         // 리사이클러뷰 속성 옵션에 출력 옵션 붙이기.
         binding.recyclerViewTest.layoutManager = layoutManager
         // 리사이클러뷰 속성 옵션에 데이터를 붙이기 , 어댑터 를 연결한다.
-        binding.recyclerViewTest.adapter = RecyclerViewTest(datas)
+        val customAdapter = RecyclerViewTest(datas)
+        binding.recyclerViewTest.adapter = customAdapter
+
+        binding.addBtn.setOnClickListener {
+            datas.add("NEW DATA " + newDataNumber++)
+            customAdapter.notifyItemInserted(datas.size)
+        }
+
+        binding.delBtn.setOnClickListener {
+            datas.removeAt(datas.size - 1)
+            customAdapter.notifyDataSetChanged() // 만능, 되도록 사용x
+        }
 
 
 
