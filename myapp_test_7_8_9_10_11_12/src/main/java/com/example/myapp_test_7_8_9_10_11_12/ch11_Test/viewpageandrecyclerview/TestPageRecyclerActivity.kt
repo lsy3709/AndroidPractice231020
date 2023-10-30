@@ -110,7 +110,19 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         //이벤트가 toggle 버튼에서 제공된거라면..
         if(toggle.onOptionsItemSelected(item)){
             return true
+        } else if ( R.id.menu_toolbar1 == item.itemId) {
+            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴1 클릭됨", Toast.LENGTH_SHORT).show()
+            true
         }
+        else if ( R.id.menu_toolbar2 == item.itemId) {
+            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴2 클릭됨", Toast.LENGTH_SHORT).show()
+            true
+        }
+        else if ( R.id.menu_toolbar3 == item.itemId) {
+            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴3 클릭됨", Toast.LENGTH_SHORT).show()
+            true
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
