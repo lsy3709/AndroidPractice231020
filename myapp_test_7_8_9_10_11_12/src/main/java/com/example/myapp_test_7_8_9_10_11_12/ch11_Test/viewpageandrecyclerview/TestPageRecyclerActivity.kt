@@ -30,6 +30,12 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         //1)-2 ,툴바 오버플로우 메뉴 붙이기
         // 재료 , res -> 메뉴 toolbar_menu, 재사용함.
 
+        // 2)드로워 화면은 뷰에서 설정 했음.
+        //  뷰1 : 본문, 뷰2 : 서랍 화면
+
+        // 3) 드로워 네비게이션 뷰 추가 설정. -> 뷰에서 작업
+        // 재료 - 1) 네비게이션 헤더 2) 본문 : res -> 메뉴
+
 
 
 
