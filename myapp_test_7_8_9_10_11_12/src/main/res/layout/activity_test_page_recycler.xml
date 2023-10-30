@@ -90,11 +90,14 @@
 
     <!--플로팅 액션 버튼 추가하기-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_create_24"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="20dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

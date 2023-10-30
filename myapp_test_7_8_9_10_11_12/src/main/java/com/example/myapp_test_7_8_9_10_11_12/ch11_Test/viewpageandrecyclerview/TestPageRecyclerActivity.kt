@@ -63,8 +63,11 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         // 버튼 클릭시, 동기화, 드러워 화면을 열어주는 기능.
         toggle.syncState()
 
-
-
+        //4) floating action button
+        // 이벤트 추가하기.
+        binding.floatingActionButton.setOnClickListener {
+            Toast.makeText(this@TestPageRecyclerActivity,"floatingActionButton 클릭됨", Toast.LENGTH_SHORT).show()
+        }
 
 
         // 뷰페이저2 프래그먼트 어댑터 이용해서 출력 해보기.
