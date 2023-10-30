@@ -12,26 +12,17 @@
     그 하위에 자식 뷰가 2개인데,
     뷰1 본화면,
     뷰2 서랍 뷰 화면-->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <!--고정 레이아웃 불러올 때 , 하나의 방법
-    스크롤뷰를 이용해서 고정하는 방법도 있음.-->
-    <include layout="@layout/toolbar_main_layout"/>
-
-    <ScrollView
+<!--    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content">-->
     <!--<androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">-->
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ch11_Test.viewpageandrecyclerview.TestPageRecyclerActivity">
 
 
@@ -39,7 +30,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <!--CoordinatorLayout의 역할 뷰 2개를 연동, 상호작용 하게끔 묶어주는 역할-->
@@ -164,14 +158,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:icon="@drawable/baseline_create_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="80dp"
         android:layout_marginRight="20dp"/>
 
 
 
-</LinearLayout>
-    </ScrollView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</ScrollView>-->
     <!--</androidx.core.widget.NestedScrollView>-->
     <!--위에 뷰가 기본 뷰1 -> 주내용
 
