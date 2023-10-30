@@ -29,9 +29,12 @@
         android:orientation="vertical">
 
         <!--앱바를 구성하기 (툴바 포함하기.)-->
-        <com.google.android.material.appbar.AppBarLayout
+        <!--일반 앱바 화면 -> 접히는 화면으로 변경.
+        CollapsingToolbarLayout-->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:background="#33E91E63"
             app:title="AppBar Title"
             app:expandedTitleMarginBottom = "50dp"
             app:expandedTitleMarginStart = "50dp"
@@ -42,6 +45,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:layout_collapseMode = "pin"
 
             />
             <ImageView
@@ -50,7 +54,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/bread"/>
 
-        </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
         <androidx.viewpager2.widget.ViewPager2
@@ -61,7 +65,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewTest"
             android:layout_width="match_parent"
-            android:layout_height="300dp"/>
+            android:layout_height="300dp"
+            app:layout_behavior = "@string/appbar_scrolling_view_behavior"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
