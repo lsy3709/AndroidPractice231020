@@ -114,7 +114,7 @@ class TestPageRecyclerActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // 검색어가 제출이 되었을 경우, 연결할 로직.
                 // 사용자 디비, 검색을하고, 그 결과 뷰를 출력하는 형태.
-                Toast.makeText(this@Test11_ToolBarActivity,"검색어가 전송됨 : ${query}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@TestPageRecyclerActivity,"검색어가 전송됨 : ${query}", Toast.LENGTH_SHORT).show()
                 return true
             }
         })
