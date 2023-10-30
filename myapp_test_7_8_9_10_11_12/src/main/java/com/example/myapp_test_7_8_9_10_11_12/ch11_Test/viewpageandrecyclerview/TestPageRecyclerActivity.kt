@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,8 @@ import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestPageRecycle
 class TestPageRecyclerActivity : AppCompatActivity() {
     lateinit var binding: ActivityTestPageRecyclerBinding
     var newDataNumber = 11
+    // 액션 버튼 토글(스위치), 서랍화면 나오게 하는 버튼.
+    lateinit var toggle : ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTestPageRecyclerBinding.inflate(layoutInflater)
@@ -51,6 +54,13 @@ class TestPageRecyclerActivity : AppCompatActivity() {
             }
             true
         }
+
+        // 드로워 화면에 액션 버튼 클릭시 -> 드로워 화면에 나오게.
+        toggle = ActionBarDrawerToggle(this@TestPageRecyclerActivity,
+            binding.drawer,R.string.open,R.string.close)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toggle.syncState()
+
 
 
 
