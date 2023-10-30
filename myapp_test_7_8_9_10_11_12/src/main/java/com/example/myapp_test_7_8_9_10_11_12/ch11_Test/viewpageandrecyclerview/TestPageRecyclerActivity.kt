@@ -99,31 +99,45 @@ class TestPageRecyclerActivity : AppCompatActivity() {
 
 // OnCreate 끝나는 부분.
     }
+    // 토클 버튼 이벤트 추가.
+
+
+
     // 오버플로우 메뉴 이벤트 핸들러 추가하기.
     // 만약, 메뉴 교체 하면, 해당 아이디 다시 재정의하기.
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
-        R.id.menu_toolbar1 -> {
-            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴1 클릭됨", Toast.LENGTH_SHORT).show()
-            true
-        }
 
-        R.id.menu_toolbar2 -> {
-            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴2 클릭됨", Toast.LENGTH_SHORT).show()
-            true
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //이벤트가 toggle 버튼에서 제공된거라면..
+        if(toggle.onOptionsItemSelected(item)){
+            return true
         }
-
-        R.id.menu_toolbar3 -> {
-            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴3 클릭됨", Toast.LENGTH_SHORT).show()
-            true
-        }
-
-        /* R.id.menu_main4 -> {
-             Toast.makeText(this@Test11_ToolBarActivity,"메뉴4 클릭됨", Toast.LENGTH_SHORT).show()
-             true
-         }*/
-        // 람다식에서 return 사용 못함.
-        else -> super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(item)
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
+//
+//        R.id.menu_toolbar1 -> {
+//            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴1 클릭됨", Toast.LENGTH_SHORT).show()
+//            true
+//        }
+//
+//        R.id.menu_toolbar2 -> {
+//            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴2 클릭됨", Toast.LENGTH_SHORT).show()
+//            true
+//        }
+//
+//        R.id.menu_toolbar3 -> {
+//            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴3 클릭됨", Toast.LENGTH_SHORT).show()
+//            true
+//        }
+//
+//        /* R.id.menu_main4 -> {
+//             Toast.makeText(this@Test11_ToolBarActivity,"메뉴4 클릭됨", Toast.LENGTH_SHORT).show()
+//             true
+//         }*/
+//        // 람다식에서 return 사용 못함.
+//        else -> super.onOptionsItemSelected(item)
+//    }
 
     // 검색 이벤트 핸들러 추가하는 부분.
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
