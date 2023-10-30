@@ -31,7 +31,8 @@
         <!--앱바를 구성하기 (툴바 포함하기.)-->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="200dp"
+            android:background="#4CAF50">
 
         <!--툴바 뷰 생성 -->
         <androidx.appcompat.widget.Toolbar
@@ -39,6 +40,11 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             style="@style/MyToolBarCss"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bread"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
