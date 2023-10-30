@@ -36,6 +36,22 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         // 3) 드로워 네비게이션 뷰 추가 설정. -> 뷰에서 작업
         // 재료 - 1) 네비게이션 헤더 2) 본문 : res -> 메뉴
 
+        // 3) 이벤트 핸들러 추가하기.
+        // 각 아이템 요소 클릭 이벤트 추가. 각 뷰마다 이벤트 핸들러가 다 다름.
+        binding.mainDrawerView.setNavigationItemSelectedListener {
+            it ->
+            if (it.title == "로그인") {
+                Toast.makeText(this@TestPageRecyclerActivity,"로그인 화면 이동",Toast.LENGTH_SHORT).show()
+            }
+           else if (it.title == "로그아웃") {
+                Toast.makeText(this@TestPageRecyclerActivity,"로그아웃 화면 이동",Toast.LENGTH_SHORT).show()
+            }
+            else if (it.title == "메인가기") {
+                Toast.makeText(this@TestPageRecyclerActivity,"메인가기 화면 이동",Toast.LENGTH_SHORT).show()
+            }
+            true
+        }
+
 
 
 
