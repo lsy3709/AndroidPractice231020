@@ -46,6 +46,8 @@
             android:background="@color/main_text_bgcolor"
             app:title="AppBar Title"
             app:expandedTitleTextColor="@color/main_text_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="#03A9F4"
             app:expandedTitleMarginBottom = "50dp"
             app:expandedTitleMarginStart = "50dp"
 
