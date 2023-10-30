@@ -66,6 +66,10 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         //4) floating action button
         // 이벤트 추가하기.
         binding.floatingActionButton.setOnClickListener {
+            when(binding.floatingActionButton.isExtended) {
+                true -> binding.floatingActionButton.shrink()
+                false -> binding.floatingActionButton.extend()
+            }
             Toast.makeText(this@TestPageRecyclerActivity,"floatingActionButton 클릭됨", Toast.LENGTH_SHORT).show()
         }
 
