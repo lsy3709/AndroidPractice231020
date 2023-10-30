@@ -58,7 +58,9 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         // 드로워 화면에 액션 버튼 클릭시 -> 드로워 화면에 나오게.
         toggle = ActionBarDrawerToggle(this@TestPageRecyclerActivity,
             binding.drawer,R.string.open,R.string.close)
+        // 화면에 붙이는 작업, 적용하기.
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // 버튼 클릭시, 동기화, 드러워 화면을 열어주는 기능.
         toggle.syncState()
 
 
@@ -100,7 +102,7 @@ class TestPageRecyclerActivity : AppCompatActivity() {
 // OnCreate 끝나는 부분.
     }
     // 토클 버튼 이벤트 추가.
-
+//  override fun onOptionsItemSelected(item: MenuItem): Boolean { 추가됨.
 
 
     // 오버플로우 메뉴 이벤트 핸들러 추가하기.
@@ -108,8 +110,10 @@ class TestPageRecyclerActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //이벤트가 toggle 버튼에서 제공된거라면..
+        // 버튼을 열때 이용되는 이벤트 핸들러 부분.
         if(toggle.onOptionsItemSelected(item)){
             return true
+            // 오버 플로우 메뉴의 클릭시 이벤트를 ,
         } else if ( R.id.menu_toolbar1 == item.itemId) {
             Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴1 클릭됨", Toast.LENGTH_SHORT).show()
             true
