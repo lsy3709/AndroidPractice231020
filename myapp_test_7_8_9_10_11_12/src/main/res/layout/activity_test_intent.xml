@@ -24,7 +24,7 @@
             android:id="@+id/passwordEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="이메일 입력해주세요."
+            android:hint="패스워드 입력해주세요."
             style="@style/MyTextCss"
             android:inputType="textPassword"/>
 
@@ -43,11 +43,11 @@
             android:layout_height="wrap_content"
             android:text="로그인하기"/>
 
-        <Button
+        <!--<Button
             android:id="@+id/testBtn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test"/>
+            android:text="test"/>-->
 
 
     </LinearLayout>
