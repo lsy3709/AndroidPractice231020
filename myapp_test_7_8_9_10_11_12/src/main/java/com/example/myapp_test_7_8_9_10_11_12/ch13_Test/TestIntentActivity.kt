@@ -96,6 +96,20 @@ class TestIntentActivity : AppCompatActivity() {
 
         }
 
+//크롬 외부앱 테스트
+        binding.testBtn5.setOnClickListener {
+            //지도 맵 열기 테스트.
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.data = Uri.parse("http://www.naver.com")
+            // 현재, 지도 관련 앱이 다양하게 없어서, 아마도 기본 앱: 구글 맵이 나옴.
+            // 만약, 지도 관련 앱이 여러 개 있다면, 특정 앱을 선택이 가능함.
+            // 사용하는 앱의 패키지명을 정확히 입력함.
+
+            startActivity(intent)
+
+        }
+
 
         // onCreate 마지막
     }
