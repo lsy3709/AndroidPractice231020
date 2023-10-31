@@ -27,17 +27,19 @@ class TabTestActivity : AppCompatActivity() {
         // 방법1) 코드상에서도 가능.
         // Tab1, Tab2, Tab3. ... 의미. 메뉴.
         val tabLayout = binding.tabs
-        val tab1: TabLayout.Tab = tabLayout.newTab()
-        tab1.text ="Tab1"
-        tabLayout.addTab(tab1)
+//        val tab1: TabLayout.Tab = tabLayout.newTab()
+//        tab1.text ="Tab1"
+//        tabLayout.addTab(tab1)
+//
+//        val tab2: TabLayout.Tab = tabLayout.newTab()
+//        tab2.text ="Tab2"
+//        tabLayout.addTab(tab2)
+//
+//        val tab3: TabLayout.Tab = tabLayout.newTab()
+//        tab3.text ="Tab3"
+//        tabLayout.addTab(tab3)
 
-        val tab2: TabLayout.Tab = tabLayout.newTab()
-        tab2.text ="Tab2"
-        tabLayout.addTab(tab2)
-
-        val tab3: TabLayout.Tab = tabLayout.newTab()
-        tab3.text ="Tab3"
-        tabLayout.addTab(tab3)
+        // 방법2) 뷰에서 아이템 속성으로 요소를 추가하기.
 
         // 재료 중에서, 프래그먼트를 이용 -> 미리 만들어 둔 프래그먼트 재사용.
         // 탭의 첫화면을 , Test1Fragment 화면으로 구성하겠다라는 의미.
