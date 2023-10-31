@@ -12,6 +12,7 @@ class TestIntent2DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTestIntent2DetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("lsy","2번 onCreate()")
 
         // 1번 화면에서 넘어온 데이터 받아서, 결과 뷰에 붙이기 작업.
         // 임시 저장소에 담기.
@@ -53,6 +54,34 @@ class TestIntent2DetailActivity : AppCompatActivity() {
 
         }
 
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("lsy","2번 onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("lsy","2번 onResume()")
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("lsy","2번 onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("lsy","2번 onStop()")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("lsy","2번 onDestroy()")
     }
 }
 
