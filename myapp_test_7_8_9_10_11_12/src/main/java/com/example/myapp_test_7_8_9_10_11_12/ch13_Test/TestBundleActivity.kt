@@ -1,6 +1,7 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch13_Test
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestBundleBinding
 
@@ -11,6 +12,7 @@ class TestBundleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTestBundleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("lsy","onCreate()")
 
         // 화면이 회전시 데이터 손실이 되는데,
         // 임시 저장소 번들에 저장하고, 값을 가져오기.
@@ -30,6 +32,7 @@ class TestBundleActivity : AppCompatActivity() {
     // 번들 객체 이용함.
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        Log.d("lsy","onSaveInstanceState()")
         // 데이터 세터 , onDestroy()전에 저장하고.
         outState.putString("data1","Hello~~~~~")
         outState.putInt("data2", 20)
@@ -37,10 +40,38 @@ class TestBundleActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+        Log.d("lsy","onRestoreInstanceState()")
         // 데이터 게터 onResume() 전에 불러오고
         val data1 = savedInstanceState.getString("data1")
         val data2 = savedInstanceState.getInt("data2")
         binding.resultText.text = "$data1 - $data2"
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("lsy","onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("lsy","onResume()")
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("lsy","onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("lsy","onStop()")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("lsy","onDestroy()")
     }
 
 }
