@@ -3,6 +3,9 @@ package com.example.myapp_test_7_8_9_10_11_12.ch13_Test
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestIntentBinding
 
@@ -53,6 +56,27 @@ class TestIntentActivity : AppCompatActivity() {
             // 2번화면으로 넘어감.
         }
 
+
+        // 후처리 함수 정의하기.
+        // ActivityResultContracts  -> StartActivityForResult, 시스템에서 정의해둔 함수
+        // 2번 화면에서 데이터를 가져왔을 때, 처리하는 함수.
+        val requestLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            val result2 = it.data?.getStringExtra("result")
+            binding.resultData1.text = "결과 result2 : $result2"
+        }
+
+        //후처리 데이터 가져오기 방법2
+        binding.testBtn3.setOnClickListener {
+            val intent : Intent = Intent(this@TestIntentActivity,
+                TestIntent2DetailActivity::class.java)
+
+            //
+           requestLauncher.launch(intent)
+            // 2번화면으로 넘어감.
+        }
+
         // onCreate 마지막
     }
     // onCreate 밖에서 , 재정의하기.
@@ -64,7 +88,7 @@ class TestIntentActivity : AppCompatActivity() {
         // 넘어온 데이터는 data 에 담아져 있다.
         if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
             val result = data?.getStringExtra("resultData")
-
+            Log.d("lsy","넘어온 결과값 : $result")
         }
     }
 

@@ -32,7 +32,7 @@ class TestIntent2DetailActivity : AppCompatActivity() {
         // 후처리 데이터 보내기 작업.
         binding.testBtn3.setOnClickListener {
             // 메세지 담기
-            intent.putExtra("resultData","2번 화면에서 데이터 가져온 값.")
+            intent.putExtra("resultData","========================2번 화면에서 데이터 가져온 값.")
             // 결과 코드 담기.
             setResult(RESULT_OK, intent)
             // 현재 앱을 종료하는 함수 -> 루트 액티비티가 아니면, finish() 호출시, 모두 종료
