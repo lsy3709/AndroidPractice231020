@@ -12,6 +12,37 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/emailEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="이메일 입력해주세요."
+            style="@style/MyTextCss"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/passwordEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="이메일 입력해주세요."
+            style="@style/MyTextCss"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/ageEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="나이 입력해주세요."
+            style="@style/MyTextCss"
+            android:inputType="text"/>
+
+
+        <Button
+            android:id="@+id/testBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인하기"/>
+
         <Button
             android:id="@+id/testBtn1"
             android:layout_width="wrap_content"
