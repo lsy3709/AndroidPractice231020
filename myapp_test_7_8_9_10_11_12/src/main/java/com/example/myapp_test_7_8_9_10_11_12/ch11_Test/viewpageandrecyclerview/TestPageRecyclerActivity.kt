@@ -24,6 +24,7 @@ class TestPageRecyclerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTestPageRecyclerBinding.inflate(layoutInflater)
+        // 사용자가 정의 툴바를 바인딩으로 가져오기.
         bindingToolBarBinding = ToolbarMainLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -136,6 +137,7 @@ class TestPageRecyclerActivity : AppCompatActivity() {
     // 오버플로우 메뉴 이벤트 핸들러 추가하기.
     // 만약, 메뉴 교체 하면, 해당 아이디 다시 재정의하기.
 
+    //툴바 이벤트 처리 부분.
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //이벤트가 toggle 버튼에서 제공된거라면..
         // 버튼을 열때 이용되는 이벤트 핸들러 부분.
