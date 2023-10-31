@@ -15,8 +15,10 @@ class TestIntentActivity : AppCompatActivity() {
     lateinit var binding : ActivityTestIntentBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityTestIntentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("lsy","onCreate()")
 
         // 인텐트에 기본 데이터 추가 및 가져오기 테스트.
         binding.testBtn2.setOnClickListener {
@@ -101,7 +103,7 @@ class TestIntentActivity : AppCompatActivity() {
             //지도 맵 열기 테스트.
             val intent = Intent()
             intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse("http://www.naver.com")
+            intent.data = Uri.parse("https://www.google.com")
             // 현재, 지도 관련 앱이 다양하게 없어서, 아마도 기본 앱: 구글 맵이 나옴.
             // 만약, 지도 관련 앱이 여러 개 있다면, 특정 앱을 선택이 가능함.
             // 사용하는 앱의 패키지명을 정확히 입력함.
@@ -125,6 +127,34 @@ class TestIntentActivity : AppCompatActivity() {
             Log.d("lsy","넘어온 결과값 : $result")
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("lsy","onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("lsy","onResume()")
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("lsy","onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("lsy","onStop()")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("lsy","onDestroy()")
+    }
+
 
 }
 
