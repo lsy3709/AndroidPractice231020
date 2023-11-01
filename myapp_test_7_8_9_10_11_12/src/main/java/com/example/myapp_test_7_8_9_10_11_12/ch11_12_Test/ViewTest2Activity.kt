@@ -37,7 +37,8 @@ class ViewTest2Activity : AppCompatActivity() {
                 if (controller != null) {
                     controller.hide(
                         WindowInsets.Type.statusBars() or
-                                WindowInsets.Type.navigationBars())
+                                WindowInsets.Type.navigationBars()
+                    )
                     controller.systemBarsBehavior =
                         WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
                 }
