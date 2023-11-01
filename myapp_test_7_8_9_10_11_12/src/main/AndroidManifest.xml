@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp_test_7_8_9_10_11_12">
     <!--
     이용자 입장, 현재 앱에서 -> 외부 앱의 기능을 많이 이용함.
     시스템 앱 ex) gps, 갤러리, 카메라, 캘린더, 등등 이용을 많이함.
@@ -30,7 +31,7 @@
         <!--name 시스템으로 변경하기. -->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.test1234"
+            android:authorities="com.example.myapp_test_7_8_9_10_11_12.fileprovider"
             android:enabled="true"
             android:exported="true"
             android:grantUriPermissions="true">

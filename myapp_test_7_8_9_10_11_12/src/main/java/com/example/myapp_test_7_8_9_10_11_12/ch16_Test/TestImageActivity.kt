@@ -162,7 +162,7 @@ class TestImageActivity : AppCompatActivity() {
                 this,
                 // provider에서 정한 authorities 값이 필요함.
                 // 매니페스트 파일에 가서,
-                "com.example.test1234",
+                "com.example.myapp_test_7_8_9_10_11_12.fileprovider",
                 file
             )
             // 카메라를 촬영하는 정해진 액션 문자열
