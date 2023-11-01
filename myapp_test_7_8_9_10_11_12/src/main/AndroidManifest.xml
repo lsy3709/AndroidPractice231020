@@ -29,10 +29,12 @@
             android:exported="false" />
         <activity
             android:name=".ch13_Test.TestIntentActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ch11_12_Test.tabTest.TabTest2Activity"
-            android:exported="true" />
+            android:exported="true"
+            />
         <activity
             android:name=".ch11_12_Test.tabTest.TabTestActivity"
             android:exported="true" />
