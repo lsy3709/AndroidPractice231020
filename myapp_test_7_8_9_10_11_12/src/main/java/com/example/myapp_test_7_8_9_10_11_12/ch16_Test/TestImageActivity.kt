@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestImageBinding
 import java.io.File
@@ -103,7 +104,31 @@ class TestImageActivity : AppCompatActivity() {
 
         //카메라 호출해서, 사진 촬영된 사진 가져오기.
         // 1) 카메라 호출하는 버튼 , 액션 문자열로 카메라 외부앱 연동.
+
         // 2) 후처리하는 함수를 이용해서, 촬영된 사진을 결과 뷰에 출력하는 로직.
+
+
+        val requestCameraFileLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            //it , 카메라로 촬영된 사진이 들어 있음.
+            // 원본 사진 크기 조절하는 비율 단위(정수값)
+            // 사진을 AVD 가상머신을 넣을 때 어느정도 비율이 줄어들었음.
+            val calRatio = calculateInSampleSize(
+                Uri.fromFile(File(filePath)),
+                resources.getDimensionPixelSize(R.dimen.profile_img_width),
+                resources.getDimensionPixelSize(R.dimen.profile_img_height),
+            )
+            // 크기 옵션을 담을 인스턴스 생성.
+            val options = BitmapFactory.Options()
+            options.inSampleSize = calRatio
+            // 촬영된 사진을 bitmap 타입으로 변환.
+            val bitmap = BitmapFactory.decodeFile(filePath,options)
+            // 비트맵 타입으로 변환된 사진을 출력하기 결과 뷰에
+            binding.resultUserImage.setImageBitmap(bitmap)
+
+
+        }
 
         binding.cameraBtn.setOnClickListener {
             // 사진이 촬영이되고, 저장이될 때, 파일이름을 정하기.
@@ -130,6 +155,24 @@ class TestImageActivity : AppCompatActivity() {
             // 전역으로 빼기.
             // 위에서 선언만하고, 실제 파일위치가 나올 이 때, 할당을 하는 구조.
             filePath = file.absolutePath
+            Log.d("lsy","file.absolutePath : $filePath")
+
+            //콘텐츠 프로바이더를 이용해서, 데이터를 가져와야 함.
+            val photoURI : Uri = FileProvider.getUriForFile(
+                this,
+                // provider에서 정한 authorities 값이 필요함.
+                // 매니페스트 파일에 가서,
+                "com.example.test1234",
+                file
+            )
+            // 카메라를 촬영하는 정해진 액션 문자열
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            // 인텐트 데이터를 담아서 전달.
+            // 키: MediaStore.EXTRA_OUTPUT , 값 : photoURI
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+            // 후처리 함수로 촬영된 사진을 처리하는 로직.
+            // 아직 정의 되지 않았음.
+            requestCameraFileLauncher.launch(intent)
 
         }
 
