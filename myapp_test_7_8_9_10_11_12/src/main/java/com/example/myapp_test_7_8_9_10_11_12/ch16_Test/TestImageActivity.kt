@@ -4,16 +4,21 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestImageBinding
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class TestImageActivity : AppCompatActivity() {
     // 갤러리, 카메라 앱 연동해서 데이터 가져오기.
     lateinit var binding: ActivityTestImageBinding
+    lateinit var filePath : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTestImageBinding.inflate(layoutInflater)
@@ -95,6 +100,39 @@ class TestImageActivity : AppCompatActivity() {
             requestGalleryLauncher.launch(intent)
 
         }
+
+        //카메라 호출해서, 사진 촬영된 사진 가져오기.
+        // 1) 카메라 호출하는 버튼 , 액션 문자열로 카메라 외부앱 연동.
+        // 2) 후처리하는 함수를 이용해서, 촬영된 사진을 결과 뷰에 출력하는 로직.
+
+        binding.cameraBtn.setOnClickListener {
+            // 사진이 촬영이되고, 저장이될 때, 파일이름을 정하기.
+            // 중복이 안되게끔 이름을 작성, UUID를 많이 쓰는데,
+            // 일단, 날짜를 기준으로 사진의 파일명을 구분 짓기.
+
+            //파일 이름 준비하기.
+            val timeStamp : String =
+                SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+
+            // 촬영된 사진의 저장소 위치 정하기.
+            // Environment.DIRECTORY_PICTURES : 정해진 위치, 갤러리
+            val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+
+            // 위에서 만든 파일이름과, 저장소위치에 실제 물리 파일 생성하기.
+            // 빈 파일.
+            val file = File.createTempFile(
+                "JPEG_${timeStamp}_",
+                ".jpg",
+                storageDir
+            )
+
+            // 실제 사진 파일 저장소 위치 정의 , 절대 경로
+            // 전역으로 빼기.
+            // 위에서 선언만하고, 실제 파일위치가 나올 이 때, 할당을 하는 구조.
+            filePath = file.absolutePath
+
+        }
+
 
     }
     // onCreate
