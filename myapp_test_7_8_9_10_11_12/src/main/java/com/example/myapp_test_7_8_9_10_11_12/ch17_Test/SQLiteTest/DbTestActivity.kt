@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityDbTestBinding
 
 class DbTestActivity : AppCompatActivity() {
@@ -47,9 +46,13 @@ class DbTestActivity : AppCompatActivity() {
         buttonInsert = binding.buttonInsert
         buttonView = binding.buttonView
         buttonUpdate = binding.buttonUpdate
-        buttonDelete = findViewById(R.id.buttonDelete)
+//        buttonDelete = findViewById(R.id.buttonDelete)
+//        buttonDelete = binding.buttonDelete
         buttonDelete = binding.buttonDelete
         // 최초 1회 실행시, 직접 만든 함수를 호출하는 부분.
+        // 현재, 하나의 화면만 테스트를 하니, 즉 다른 화면 이동이 없어서,
+        // 액티비티 생명주기에서, 각 화면이 수행이 되는 구조를 이해를 하면,
+        // 조금 더 효율적인 자원소모를 할수 있음.
         AddData()
         viewAll()
         UpdateData()
@@ -73,8 +76,11 @@ class DbTestActivity : AppCompatActivity() {
 
     // 데이터베이스 읽어오기
     fun viewAll() {
+        // SAM (Single Abstrac Method) 함수형 인터페이스, 추상 메서드가 하나인 메서드.
+        // 람다식으로 표현 할 때 , 자주 이용되는 기법 중 하나임.
         buttonView!!.setOnClickListener(View.OnClickListener {
             // res에 조회된 , 테이블의 내용이 들어가 있다. select 의 조회의 결괏값있다.
+            // res -> Cursor = 테이블
             val res = myDB!!.allData
             // 결과가 없을 때
             if (res.count == 0) {
@@ -150,6 +156,7 @@ class DbTestActivity : AppCompatActivity() {
         }
     }
 
+    // 사용자 정의 다이얼로그창을 자주 이용할 때 사용하는 기본 샘플 코드.
     fun ShowMessage(title: String?, Message: String?) {
         val builder = AlertDialog.Builder(this)
         builder.setCancelable(true)
