@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +48,7 @@ class MultiImageRecyclerActivity : AppCompatActivity() {
                     for(i in 0 until count!!) {
                         // 여러 사진이 이터러블 (반복가능한 형태, 인덱스 있다.) 각 요소의 사진 Uri 가져오기.
                         val imageUri = it.data!!.clipData?.getItemAt(i)?.uri
+                        Log.d("lsy","사진의 위치 Uri : $imageUri")
                         if (imageUri != null) {
                             list.add(imageUri)
                         }
@@ -58,10 +60,12 @@ class MultiImageRecyclerActivity : AppCompatActivity() {
                     it.data.let {
                         uri -> val imageUri : Uri? = it.data?.data
                         if (imageUri != null) {
+                            Log.d("lsy","사진의 위치 Uri : $imageUri")
                             list.add(imageUri)
                         }
                     }
                 }
+            // 데이터 변경 유무를 알리는 메서드 , 전체가 다 성능 좋지 않음. 테스트용.
             adapter.notifyDataSetChanged()
 
         }
@@ -74,6 +78,7 @@ class MultiImageRecyclerActivity : AppCompatActivity() {
             // 사진을 여러장 고르는 속성 추가. 시스템에게 사진 여러장 선택 한다는 신고.
             // 추가1
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true)
+            // image 이고, images 오타가 있으면 안됨. 사진 선택이 안됨.
             intent.setType("image/*")
 
             // 사진에 접근 하겠다는 정해진 액션 문자열

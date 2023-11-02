@@ -15,7 +15,10 @@ class MyViewHolder (val binding: MutilimagepickItemBinding) : RecyclerView.ViewH
 
 // 추가, 어댑터 매개변수에 context 를 추가하면,
 // 해당 액티비티나, 프래그먼트에서 뷰 작업하기 좋음.
-class MultiImageAdapter (val datas: ArrayList<Uri>, val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+// 현재 사용이된 곳, glide 사진 출력 라이브러리 , with(this) -> context 사용이됨.
+// 토스트 출력시 this -> context , 사용이됨.
+class MultiImageAdapter (val datas: ArrayList<Uri>, val context: Context)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         MyViewHolder(
             MutilimagepickItemBinding.inflate(
@@ -44,6 +47,7 @@ class MultiImageAdapter (val datas: ArrayList<Uri>, val context: Context) : Recy
             if (position == 0) {
                 Log.d("lsy", "0번 요소 item clicked : $position")
                 Toast.makeText(context,"0번 요소 item clicked : $position",Toast.LENGTH_SHORT).show()
+                // 상세 페이지 이동으로 사용해도 됨.
             } else {
                 Log.d("lsy", "0번 요소 외 item clicked : $position")
                 Toast.makeText(context,"0번 요소 외 item clicked : $position",Toast.LENGTH_SHORT).show()
