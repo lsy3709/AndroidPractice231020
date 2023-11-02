@@ -11,12 +11,16 @@ import com.example.myapp_test6.databinding.UserItemRecyclerBinding
 import com.example.myapp_test6.model.User
 
 
+// 변경 부분1 . UserItemRecyclerBinding
 class MyViewHolder (val binding: UserItemRecyclerBinding) : RecyclerView.ViewHolder(binding.root)
 
 // 추가, 어댑터 매개변수에 context 를 추가하면,
 // 해당 액티비티나, 프래그먼트에서 뷰 작업하기 좋음.
 // 현재 사용이된 곳, glide 사진 출력 라이브러리 , with(this) -> context 사용이됨.
 // 토스트 출력시 this -> context , 사용이됨.
+
+// 변경 부분 2 val context: Context
+// 변경 부분 3 UserItemRecyclerBinding
 class MultiImageAdapter (val datas: ArrayList<User>, val context: Context)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
@@ -28,6 +32,7 @@ class MultiImageAdapter (val datas: ArrayList<User>, val context: Context)
         return datas.size
     }
 
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as MyViewHolder).binding
         // glide 를 이용해서, 이미지를 처리하기.
@@ -35,6 +40,8 @@ class MultiImageAdapter (val datas: ArrayList<User>, val context: Context)
         // 이미지 출력도 쉽고, 크기 조절도 쉬워요.
         // 외부 기능을 가져다 사용 할게요.
         // 데이터에서 각요소 가져오기.
+
+        // 변경 부분 4 ~ 7
         Glide.with(context).load(datas[position].profileUri)
             //크기 조절
             .override(200,200)

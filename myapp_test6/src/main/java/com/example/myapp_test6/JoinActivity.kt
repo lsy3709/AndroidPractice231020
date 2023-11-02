@@ -22,6 +22,11 @@ import java.util.Date
 class JoinActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJoinBinding
+    // 현재, 카메라에서만, 촬영후, 물리 이미지를 만들어서,
+    // 각 앱의 내부 저장소에 저장하고, 저장된 위치를 담은 변수.
+    //
+    // 미구현
+    // 갤러리에서 선택된 사진의 , Uri 주소를 가져와서 -> filePath 담기.
     lateinit var filePath : String
 
     //회원가입 추가 부분
@@ -194,10 +199,12 @@ class JoinActivity : AppCompatActivity() {
 
         }
 
+        // 회원가입 버튼 클릭시, 회원 가입 하는 함수 호출
         binding.buttonInsert.setOnClickListener {
             AddData()
         }
 
+        // 조회하는 뷰에 페이지 이동.
         binding.buttonGetUser.setOnClickListener {
             val intent = Intent(this@JoinActivity,UserTableActivity::class.java)
             startActivity(intent)
