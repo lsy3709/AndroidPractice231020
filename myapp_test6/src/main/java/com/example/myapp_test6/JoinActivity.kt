@@ -7,9 +7,13 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.example.myapp_test6.SQLiteDB.DatabaseHelper
 import com.example.myapp_test6.databinding.ActivityJoinBinding
 import java.io.File
 import java.text.SimpleDateFormat
@@ -19,11 +23,24 @@ class JoinActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJoinBinding
     lateinit var filePath : String
+
+    //회원가입 추가 부분
+    var myDB: DatabaseHelper? = null
+    var buttonInsert : Button? = null
+    var editTextEmail: EditText? = null
+    var editTextPassword: EditText? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityJoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //회원가입 내용 SQLite 넣기
+        myDB = DatabaseHelper(this)
+        buttonInsert = binding.buttonInsert
+        editTextEmail = binding.userEmail
+        editTextPassword = binding.userPassword
 
         //작업 구성 2가지.
         // 첫번째, 갤러리 앱을 호출 하는 작업
@@ -77,6 +94,7 @@ class JoinActivity : AppCompatActivity() {
                 // 결과 사진을 원하는 뷰에 넣기.
                 // 지금, 그냥 출력하지만, 비동기식으로 처리하는 glide 라는 라이브러리를 주로 이용할 예정.
                 binding.resultUserImage.setImageBitmap(bitmap)
+
 
                 Log.d("lsy","갤러리에서 선택된 사진의 크기 비율 calRatio : $calRatio")
 
@@ -176,9 +194,32 @@ class JoinActivity : AppCompatActivity() {
 
         }
 
+        binding.buttonInsert.setOnClickListener {
+            AddData()
+        }
+
+        binding.buttonGetUser.setOnClickListener {
+            val intent = Intent(this@JoinActivity,UserTableActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
     // onCreate
+    fun AddData() {
+        buttonInsert!!.setOnClickListener {
+            val isInserted = myDB!!.insertData(
+                editTextEmail!!.text.toString(),
+                editTextPassword!!.text.toString(),
+                filePath
+            )
+            if (isInserted == true)
+                Toast.makeText(this@JoinActivity, "데이터추가 성공", Toast.LENGTH_LONG)
+                    .show()
+            else Toast.makeText(this@JoinActivity, "데이터추가 실패", Toast.LENGTH_LONG).show()
+        }
+    }
+
 
     //크기를 조절해주는 임의의 함수 만들기.
     // 자주 쓰는 기능은 따로 클래스를 만들어서 재사용하면됨. 일단,
