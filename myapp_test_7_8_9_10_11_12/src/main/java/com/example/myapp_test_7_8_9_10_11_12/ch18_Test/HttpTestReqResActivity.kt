@@ -45,7 +45,7 @@ class HttpTestReqResActivity : AppCompatActivity() {
 //                "avatar": "https://reqres.in/img/faces/8-image.jpg"
 //            },
 
-
+        // 작업 순서2 : 네트워크 인터페이스 정의하기.
 
 
 
