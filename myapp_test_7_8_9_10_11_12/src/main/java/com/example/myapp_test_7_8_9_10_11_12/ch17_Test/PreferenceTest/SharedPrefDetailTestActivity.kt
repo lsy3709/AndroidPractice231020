@@ -37,6 +37,14 @@ class SharedPrefDetailTestActivity : AppCompatActivity() {
                 editor.commit()
             }
 
+            // 삭제 테스트2 - 파일 전체 삭제
+            binding.deleteFileSharedPreferBtnTest.setOnClickListener {
+                val pref = getSharedPreferences("userInfo", MODE_PRIVATE)
+                val editor = pref.edit()
+                editor.clear()
+                editor.commit()
+            }
+
         }
     }
 }
