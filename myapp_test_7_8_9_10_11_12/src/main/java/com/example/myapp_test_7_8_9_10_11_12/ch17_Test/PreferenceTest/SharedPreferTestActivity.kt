@@ -1,5 +1,6 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch17_Test.PreferenceTest
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivitySharedPreferTestBinding
@@ -34,6 +35,9 @@ class SharedPreferTestActivity : AppCompatActivity() {
             editor.putString("password",password)
             editor.commit()
 
+            //2번 화면으로 이동.
+            val intent = Intent(this,SharedPrefDetailTestActivity::class.java)
+            startActivity(intent)
         }
 
     }
