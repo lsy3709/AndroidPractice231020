@@ -27,6 +27,7 @@ class SharedPreferTestActivity : AppCompatActivity() {
         binding.buttonInsertSP.setOnClickListener {
             val email = binding.userEmail.text.toString()
             val password = binding.userPassword.text.toString()
+            // 라디오 값 가져와서 사용.
             val pickRadio = getValue(binding.testRadioGroup)
             // 라디오 잠시 대기.
 
@@ -35,6 +36,7 @@ class SharedPreferTestActivity : AppCompatActivity() {
             val editor = pref.edit()
             editor.putString("email",email)
             editor.putString("password",password)
+            // 값 넣기.
             editor.putString("pickRadio",pickRadio)
             editor.putString("email2",email)
             editor.putString("password2",password)
@@ -51,6 +53,9 @@ class SharedPreferTestActivity : AppCompatActivity() {
 
 
     }
+
+    // 출처 : https://blog.naver.com/PostView.naver?blogId=sherry911&logNo=220598357658
+    // 함수의 매개변수에 : 라디오 그룹을 넣었음. 참고 ) 1)라디오 그룹 2) 라디오 요소 구성.
     fun getValue(v: View?): String? {
         val male = binding.radio1
         val female = binding.radio2
