@@ -1,9 +1,14 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch18_Test
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.model.UserListModel
 import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.retrofit.MyApplication
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityHttpTestReqResBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HttpTestReqResActivity : AppCompatActivity() {
     lateinit var binding : ActivityHttpTestReqResBinding
@@ -65,7 +70,25 @@ class HttpTestReqResActivity : AppCompatActivity() {
         val userListCall = networkService.doGetUserList("2")
 
         // 실제 통신이 시작이 되는 부분, 이 함수를 통해서 데이터를 받아옴.
-        userListCall.enqueue()
+        userListCall.enqueue(object : Callback<UserListModel> {
+            //익명 클래스가, Callback , 레트로핏2에서 제공하는 인터페이스를 구현했고,
+            // 반드시 재정의해야하는 함수들이 있음.
+            override fun onResponse(call: Call<UserListModel>, response: Response<UserListModel>) {
+            // 데이터를 성공적으로 받았을 때 수행되는 함수
+                val userList = response.body()
+                Log.d("lsy","userList의 값 : ${userList?.data}")
+
+            // 데이터를 성공적으로 받았다면, 여기서 리사이클러 뷰 어댑터에 연결하면 됨.
+
+            }
+
+            override fun onFailure(call: Call<UserListModel>, t: Throwable) {
+
+            // 데이터를 못 받았을 때 수행되는 함수
+                call.cancel()
+            }
+
+        })
 
 
         // 작업 순서5 : 리사이클러뷰에 넣는 작업. , 재사용.
