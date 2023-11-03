@@ -23,6 +23,7 @@ class SharedPrefDetailTestActivity : AppCompatActivity() {
             val pref = getSharedPreferences("userInfo", MODE_PRIVATE)
             val email = pref.getString("email", "Default EMAIL")
             val password = pref.getString("password", "Default PASSWORD")
+            val pickRadio = pref.getString("pickRadio", "Default pickRadio")
             val email2 = pref.getString("email2", "Default EMAIL")
             val password2 = pref.getString("password2", "Default PASSWORD")
             val email3 = pref.getString("email3", "Default EMAIL")
@@ -31,6 +32,7 @@ class SharedPrefDetailTestActivity : AppCompatActivity() {
             // 결과 뷰에 데이터 넣기.
             binding.resultEmailSP.text = email
             binding.resultPasswordSP.text = password
+            binding.resultRadioSP.text = pickRadio
 
             // 삭제 테스트1 - 부분 삭제
             binding.deleteSharedPreferBtnTest.setOnClickListener {

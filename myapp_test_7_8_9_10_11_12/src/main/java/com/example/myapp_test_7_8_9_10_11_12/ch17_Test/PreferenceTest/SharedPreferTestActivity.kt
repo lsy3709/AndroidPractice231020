@@ -2,6 +2,7 @@ package com.example.myapp_test_7_8_9_10_11_12.ch17_Test.PreferenceTest
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivitySharedPreferTestBinding
 
@@ -26,6 +27,7 @@ class SharedPreferTestActivity : AppCompatActivity() {
         binding.buttonInsertSP.setOnClickListener {
             val email = binding.userEmail.text.toString()
             val password = binding.userPassword.text.toString()
+            val pickRadio = getValue(binding.testRadioGroup)
             // 라디오 잠시 대기.
 
             // 공유프리퍼런스 값 넣기. 저장.
@@ -33,6 +35,7 @@ class SharedPreferTestActivity : AppCompatActivity() {
             val editor = pref.edit()
             editor.putString("email",email)
             editor.putString("password",password)
+            editor.putString("pickRadio",pickRadio)
             editor.putString("email2",email)
             editor.putString("password2",password)
             editor.putString("email3",email)
@@ -42,7 +45,22 @@ class SharedPreferTestActivity : AppCompatActivity() {
             //2번 화면으로 이동.
             val intent = Intent(this,SharedPrefDetailTestActivity::class.java)
             startActivity(intent)
+
+
         }
 
+
+    }
+    fun getValue(v: View?): String? {
+        val male = binding.radio1
+        val female = binding.radio2
+        var pickValue: String? = null
+
+        if (male.isChecked) {
+            pickValue = male.text.toString()
+        } else if (female.isChecked) {
+            pickValue = female.text.toString()
+        }
+        return pickValue
     }
 }
