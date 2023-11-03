@@ -23,6 +23,10 @@ class SharedPrefDetailTestActivity : AppCompatActivity() {
             val pref = getSharedPreferences("userInfo", MODE_PRIVATE)
             val email = pref.getString("email", "Default EMAIL")
             val password = pref.getString("password", "Default PASSWORD")
+            val email2 = pref.getString("email2", "Default EMAIL")
+            val password2 = pref.getString("password2", "Default PASSWORD")
+            val email3 = pref.getString("email3", "Default EMAIL")
+            val password3 = pref.getString("password3", "Default PASSWORD")
 
             // 결과 뷰에 데이터 넣기.
             binding.resultEmailSP.text = email

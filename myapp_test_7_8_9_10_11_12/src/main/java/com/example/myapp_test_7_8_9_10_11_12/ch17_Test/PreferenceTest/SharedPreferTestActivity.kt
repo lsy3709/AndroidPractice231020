@@ -33,6 +33,10 @@ class SharedPreferTestActivity : AppCompatActivity() {
             val editor = pref.edit()
             editor.putString("email",email)
             editor.putString("password",password)
+            editor.putString("email2",email)
+            editor.putString("password2",password)
+            editor.putString("email3",email)
+            editor.putString("password3",password)
             editor.commit()
 
             //2번 화면으로 이동.
