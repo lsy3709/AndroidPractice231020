@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivitySharedPreferTestBinding
 
+
 class SharedPreferTestActivity : AppCompatActivity() {
     // 1번화면
     // val test = 공유프리퍼런스 파일에 데이터 담기
@@ -21,6 +22,19 @@ class SharedPreferTestActivity : AppCompatActivity() {
 
         // 이벤트 처리할 예정.
         // 회원가입에서 사용했던 뷰를 재사용.
+        binding.buttonInsertSP.setOnClickListener {
+            val email = binding.userEmail.text.toString()
+            val password = binding.userPassword.text.toString()
+            // 라디오 잠시 대기.
+
+            // 공유프리퍼런스 값 넣기. 저장.
+            val pref = getSharedPreferences("userInfo", MODE_PRIVATE)
+            val editor = pref.edit()
+            editor.putString("email",email)
+            editor.putString("password",password)
+            editor.commit()
+
+        }
 
     }
 }
