@@ -26,7 +26,12 @@
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
             android:name=".ch18_Test.PublicDataTestActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity
             android:name=".ch18_Test.NewsApiTestActivity"
             android:exported="true" />
@@ -136,11 +141,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
