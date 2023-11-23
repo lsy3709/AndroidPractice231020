@@ -13,4 +13,19 @@
         android:background="@color/main_text_bgcolor"
         style="@style/MyTextCss"/>
 
+    <TextView
+        android:id="@+id/fragResult1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:textSize="30sp"
+        android:background="@color/white"
+        android:layout_marginTop="250dp"/>
+    <EditText
+        android:id="@+id/fragResultEdiView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="230dp"/>
+
 </FrameLayout>

@@ -12,12 +12,22 @@
     android:layout_height="match_parent"
     tools:context=".ch11_12_Test.Test11_FragmentActivity">
 
+    <Button
+        android:id="@+id/actvityFragBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="액티비티 위에 버튼"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <LinearLayout
         android:id="@+id/fragment1"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actvityFragBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 

@@ -13,5 +13,26 @@
         android:background="#03A9F4"
         android:text="@string/hello_blank_fragment"
         style="@style/MyTextCss"/>
+    <Button
+        android:id="@+id/FragBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="데이터 설정하기."
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:id="@+id/FragBt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="밑에 프래그먼트에 데이터 보내기."
+        android:layout_marginTop="150dp"/>
+
+    <EditText
+        android:id="@+id/fragResultEdiView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="230dp"/>
+
 
 </FrameLayout>
