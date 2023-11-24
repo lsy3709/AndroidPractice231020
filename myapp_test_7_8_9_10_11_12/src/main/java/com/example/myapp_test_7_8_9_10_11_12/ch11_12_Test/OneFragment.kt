@@ -65,6 +65,7 @@ class OneFragment : Fragment() {
         }
 binding.FragBt2.setOnClickListener {
     val resultView = activity?.findViewById<TextView>(R.id.fragResult1)
+
     if (resultView != null) {
         resultView.text = "sample"
     }

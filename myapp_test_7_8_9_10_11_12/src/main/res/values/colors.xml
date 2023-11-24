@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_text_color">#E91E63</color>
     <color name="main_text_bgcolor">#CDDC39</color>
+    <color name="glide_slider_indicator_color">#00ff00</color>
 </resources>
