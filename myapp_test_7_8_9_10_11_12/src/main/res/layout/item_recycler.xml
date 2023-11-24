@@ -3,13 +3,18 @@
     android:id="@+id/item_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="500dp"
     android:padding="5dp"
     android:orientation="vertical">
 
 <!--    뷰페이저 넣기-->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/tapFragSliderviewPager1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
 
     <ImageView
+        android:id="@+id/tapFragSliderexImg"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginLeft="10dp"

@@ -11,4 +11,12 @@ class ItemData {
     var content: String? = null
     // 날짜.
     var date: String? = null
+    // img1
+    var img1: String? = null
+    // img2
+    var img2: String? = null
+    // img3
+    var img3: String? = null
+    // img4
+    var img4: String? = null
 }
