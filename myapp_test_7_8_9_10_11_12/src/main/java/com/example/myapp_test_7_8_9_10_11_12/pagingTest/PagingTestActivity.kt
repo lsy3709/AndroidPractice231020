@@ -14,6 +14,7 @@ import retrofit2.Response
 
 class PagingTestActivity : AppCompatActivity() {
     lateinit var binding : ActivityPagingTestBinding
+
     lateinit var datas: MutableList<String>
     lateinit var datasSpring: MutableList<ItemModel2>
 
@@ -40,6 +41,7 @@ class PagingTestActivity : AppCompatActivity() {
 
         layoutManager = LinearLayoutManager(this@PagingTestActivity)
 
+        //로컬 테스트 , 더미데이터
         for(i in 1..10) {
             datas.add("라바 $i")
         }
@@ -83,12 +85,7 @@ class PagingTestActivity : AppCompatActivity() {
                 recycler.adapter = PagingRecyclerAdapter(datasSpring)
                 Log.d("lsy","최초 어댑터 추가하기 후 datasSpring.size  =========================================  : ${datasSpring.size}")
 
-                // 액티비티 -> 리사이클러뷰 -> 실제 데이터를 연결하는 부분. 중요함.!!!!!!!!!!!!
-//                binding.pagingRecyclerView.adapter = shopMainList?.items?.content?.let {
-//                    PagingRecyclerAdapter(
-//                        it
-//                    )
-//                }
+
                 // 구분선 넣기, 나중에 옵션으로 배경이미지도 넣기 가능.
                recycler.addItemDecoration(
                     DividerItemDecoration(this@PagingTestActivity,
@@ -106,20 +103,7 @@ class PagingTestActivity : AppCompatActivity() {
 
         })
 
-//        // 기본 값으로 세로 방향 출력.
-////        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-//        // 가로 방향으로 출력 해보기.
-//        val layoutManager = LinearLayoutManager(this)
-////        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-//        binding.pagingRecyclerView.layoutManager = layoutManager
-//
-//        // 액티비티 -> 리사이클러뷰 -> 실제 데이터를 연결하는 부분. 중요함.!!!!!!!!!!!!
-//        binding.pagingRecyclerView.adapter = PagingRecyclerAdapter(datas)
-//        // 구분선 넣기, 나중에 옵션으로 배경이미지도 넣기 가능.
-//        binding.pagingRecyclerView.addItemDecoration(
-//            DividerItemDecoration(this,
-//                LinearLayoutManager.VERTICAL)
-//        )
+
 
         // 로컬 , 임시 더미 데이터로 , 스크롤 리스너 테스트
         // 스프링, shop에서, main 부분 , 페이징으로 받아와서 추가하기.
@@ -150,41 +134,7 @@ class PagingTestActivity : AppCompatActivity() {
 //                    (binding.pagingRecyclerView.adapter as PagingRecyclerAdapter).notifyDataSetChanged()
 
                     // 스프링 데이터 추가 부분.
-                    // 레트로핏 데이터 받아오기.
-                    // 변경1
-                    val networkService = (applicationContext as MyApplication4).networkServiceSpringShop
-
-                    val shopMainListCall = networkService.getList(page)
-
-                    //변경3
-                    // 실제 통신이 시작이 되는 부분, 이 함수를 통해서 데이터를 받아옴.
-                    shopMainListCall.enqueue(object : Callback<ItemListModel> {
-                        //익명 클래스가, Callback , 레트로핏2에서 제공하는 인터페이스를 구현했고,
-                        // 반드시 재정의해야하는 함수들이 있음.
-                        // 변경4
-                        override fun onResponse(call: Call<ItemListModel>, response: Response<ItemListModel>) {
-                            // 데이터를 성공적으로 받았을 때 수행되는 함수
-                            val shopMainList = response.body()
-                            // 변경8
-                            Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content}")
-//                            Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content?.get(0)?.id}")
-                            if(shopMainList != null && shopMainList.items.content?.isNotEmpty() == true) {
-                                Log.d("lsy","getData2 호출전 size 이벤트 스크롤 후 =========================================  : ${shopMainList?.items?.content.size}")
-                                Log.d("lsy","getData2 호출전 datasSpring.size 이벤트 스크롤 후 =========================================  : ${datasSpring.size}")
-                                getData2(shopMainList?.items?.content)
-                            }
-
-
-                        }
-
-                        //변경5
-                        override fun onFailure(call: Call<ItemListModel>, t: Throwable) {
-                            Log.d("lsy"," 통신실패")
-                            // 데이터를 못 받았을 때 수행되는 함수
-                            call.cancel()
-                        }
-
-                    })
+                    retrofitGetData(page)
 
 
                 }
@@ -215,6 +165,45 @@ class PagingTestActivity : AppCompatActivity() {
         }
         recycler.adapter?.notifyDataSetChanged()
 
+    }
+
+    // retrofit , 스프링로 부터 데이터 받기, 각 페이지 마다, 데이터 받기.
+    fun retrofitGetData(page2 : Int) {
+        // 레트로핏 데이터 받아오기.
+        // 변경1
+        val networkService = (applicationContext as MyApplication4).networkServiceSpringShop
+
+        val shopMainListCall = networkService.getList(page2)
+
+        //변경3
+        // 실제 통신이 시작이 되는 부분, 이 함수를 통해서 데이터를 받아옴.
+        shopMainListCall.enqueue(object : Callback<ItemListModel> {
+            //익명 클래스가, Callback , 레트로핏2에서 제공하는 인터페이스를 구현했고,
+            // 반드시 재정의해야하는 함수들이 있음.
+            // 변경4
+            override fun onResponse(call: Call<ItemListModel>, response: Response<ItemListModel>) {
+                // 데이터를 성공적으로 받았을 때 수행되는 함수
+                val shopMainList = response.body()
+                // 변경8
+                Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content}")
+//                            Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content?.get(0)?.id}")
+                if(shopMainList != null && shopMainList.items.content?.isNotEmpty() == true) {
+                    Log.d("lsy","getData2 호출전 size 이벤트 스크롤 후 =========================================  : ${shopMainList?.items?.content.size}")
+                    Log.d("lsy","getData2 호출전 datasSpring.size 이벤트 스크롤 후 =========================================  : ${datasSpring.size}")
+                    getData2(shopMainList?.items?.content)
+                }
+
+
+            }
+
+            //변경5
+            override fun onFailure(call: Call<ItemListModel>, t: Throwable) {
+                Log.d("lsy"," 통신실패")
+                // 데이터를 못 받았을 때 수행되는 함수
+                call.cancel()
+            }
+
+        })
     }
 
 
