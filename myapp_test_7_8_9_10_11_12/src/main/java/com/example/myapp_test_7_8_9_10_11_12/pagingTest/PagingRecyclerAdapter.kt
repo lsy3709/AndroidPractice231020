@@ -8,7 +8,7 @@ import com.example.myapp_test_7_8_9_10_11_12.databinding.PagingItemBinding
 
 class MyViewHolderPage (val binding: PagingItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-class PagingRecyclerAdapter  (val datas: List<ItemModel2>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PagingRecyclerAdapter  (val datas: MutableList<ItemModel2>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     // 리사이클러 뷰의 어댑터를 상속 받으면, 필수적으로 재정의 해야하는 함수들입니다.
     // 자동 완성으로 생성했음.
 

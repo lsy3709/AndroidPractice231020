@@ -26,7 +26,7 @@ class ItemListModel (
     )
 
 class Items (
-    val content : List<ItemModel2>?
+    val content : MutableList<ItemModel2>?
 )
 
 class ItemModel2 {
