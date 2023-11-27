@@ -164,6 +164,7 @@ class PagingTestActivity : AppCompatActivity() {
                             Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content}")
                             Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content?.get(0)?.id}")
                             if(shopMainList != null && shopMainList.items.content?.isNotEmpty() == true) {
+                                Log.d("lsy","getData2 호출전 size 이벤트 스크롤 후 =========================================  : ${shopMainList?.items?.content.size}")
                                 getData2(shopMainList?.items?.content)
                             }
 
@@ -196,6 +197,8 @@ class PagingTestActivity : AppCompatActivity() {
     }
 
     fun getData2(datas2: MutableList<ItemModel2>?) {
+        Log.d("lsy","getData2 함수 호출 시작.")
+        Log.d("lsy","getData2 함수 호출 시작2.datasSpring size 값 : ${datasSpring?.size} ")
         datasSpring?.size?.let {
             recycler.adapter?.notifyItemInserted(
                 it.minus(1)
