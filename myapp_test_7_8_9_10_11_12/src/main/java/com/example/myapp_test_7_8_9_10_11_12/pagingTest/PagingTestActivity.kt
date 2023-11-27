@@ -15,7 +15,7 @@ import retrofit2.Response
 class PagingTestActivity : AppCompatActivity() {
     lateinit var binding : ActivityPagingTestBinding
     lateinit var datas: MutableList<String>
-    private var datasSpring: MutableList<ItemModel2>? = null
+    lateinit var datasSpring: MutableList<ItemModel2>
 
     lateinit var layoutManager : LinearLayoutManager
 
@@ -36,7 +36,7 @@ class PagingTestActivity : AppCompatActivity() {
         // 원하는 뷰에 데이터를 넣는 , 바인딩 작업을 함.
         datas = mutableListOf<String>()
 
-//        datasSpring = mutableListOf<ItemModel2>()
+        datasSpring = mutableListOf<ItemModel2>()
 
         layoutManager = LinearLayoutManager(this@PagingTestActivity)
 
@@ -76,7 +76,12 @@ class PagingTestActivity : AppCompatActivity() {
 //                layoutManager = LinearLayoutManager(this@PagingTestActivity)
                 recycler.layoutManager = layoutManager
 //        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-             recycler.adapter = shopMainList?.items?.content?.let { PagingRecyclerAdapter(it) }
+                shopMainList?.items?.content?.let { datasSpring.addAll(it) }
+//             recycler.adapter = shopMainList?.items?.content?.let { PagingRecyclerAdapter(it) }
+
+                Log.d("lsy","최초 어댑터 추가하기 전 datasSpring.size  =========================================  : ${datasSpring.size}")
+                recycler.adapter = PagingRecyclerAdapter(datasSpring)
+                Log.d("lsy","최초 어댑터 추가하기 후 datasSpring.size  =========================================  : ${datasSpring.size}")
 
                 // 액티비티 -> 리사이클러뷰 -> 실제 데이터를 연결하는 부분. 중요함.!!!!!!!!!!!!
 //                binding.pagingRecyclerView.adapter = shopMainList?.items?.content?.let {
@@ -162,9 +167,10 @@ class PagingTestActivity : AppCompatActivity() {
                             val shopMainList = response.body()
                             // 변경8
                             Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content}")
-                            Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content?.get(0)?.id}")
+//                            Log.d("lsy","shopMainList 이벤트 스크롤 후 ========================================= 값 : ${shopMainList?.items?.content?.get(0)?.id}")
                             if(shopMainList != null && shopMainList.items.content?.isNotEmpty() == true) {
                                 Log.d("lsy","getData2 호출전 size 이벤트 스크롤 후 =========================================  : ${shopMainList?.items?.content.size}")
+                                Log.d("lsy","getData2 호출전 datasSpring.size 이벤트 스크롤 후 =========================================  : ${datasSpring.size}")
                                 getData2(shopMainList?.items?.content)
                             }
 
