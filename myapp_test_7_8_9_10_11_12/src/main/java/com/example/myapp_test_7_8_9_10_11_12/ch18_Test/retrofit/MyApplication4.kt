@@ -16,12 +16,17 @@ class MyApplication4 : Application(){
     // 레스트 통신 테스트 샘플
     // spring 서버 레스트 용.
     val BASE_URL_SPRING_SHOP = "http://10.100.104.27:80/"
+
+    // 강사실 내자리 , 내부 아이피 , 192.168.0.22
+    val BASE_URL_SPRING_SHOP2 = "http://192.168.0.22:80/"
+
     // spring 서버 레스트 용.
     var networkServiceSpringShop: INetworkServiceSpringShop
     // spring 서버 레스트 용.
     val retrofitSpring: Retrofit
         get() = Retrofit.Builder()
-            .baseUrl(BASE_URL_SPRING_SHOP)
+            // 필요시, 강의실, 내자리 스위치하면서 사용하기.
+            .baseUrl(BASE_URL_SPRING_SHOP2)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

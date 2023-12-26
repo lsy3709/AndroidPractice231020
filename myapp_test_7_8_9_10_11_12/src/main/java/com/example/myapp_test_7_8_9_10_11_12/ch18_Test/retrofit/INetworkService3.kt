@@ -1,6 +1,7 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch18_Test.retrofit
 
 import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.model.PublicModel.ItemListModel
+import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.model.PublicModel.ItemListModel2
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,7 +17,11 @@ interface INetworkService3 {
 
     //http://apis.data.go.kr/6260000/WalkingService/getWalkingKr?serviceKey=인증키&numOfRows=10&pageNo=1
     //예시
-    //https://apis.data.go.kr/6260000/WalkingService/getWalkingKr?serviceKey=ALRX9GpugtvHxcIO%2FiPg1vXIQKi0E6Kk1ns4imt8BLTgdvSlH%2FAKv%2BA1GcGUQgzuzqM3Uv1ZGgpG5erOTDcYRQ%3D%3D&pageNo=1&numOfRows=100&resultType=json
+    //https://apis.data.go.kr/6260000/WalkingService/getWalkingKr
+    // ?serviceKey=ALRX9GpugtvHxcIO%2FiPg1vXIQKi0E6Kk1ns4imt8BLTgdvSlH%2FAKv%2BA1GcGUQgzuzqM3Uv1ZGgpG5erOTDcYRQ%3D%3D
+    // &pageNo=1
+    // &numOfRows=100
+    // &resultType=json
     @GET("WalkingService/getWalkingKr")
     fun getList2(
         @Query("serviceKey") serviceKey: String?,
@@ -24,5 +29,18 @@ interface INetworkService3 {
         @Query("numOfRows") numOfRows: Int,
         @Query("resultType") resultType : String
     ): retrofit2.Call<ItemListModel>
+
+//    'https://apis.data.go.kr/6260000/FoodService/getFoodKr
+    //    ?serviceKey=ALRX9GpugtvHxcIO%2FiPg1vXIQKi0E6Kk1ns4imt8BLTgdvSlH%2FAKv%2BA1GcGUQgzuzqM3Uv1ZGgpG5erOTDcYRQ%3D%3D
+    //    &numOfRows=100
+    //    &pageNo=1
+    //    &resultType=json'
+    @GET("FoodService/getFoodKr")
+    fun getList3(
+        @Query("serviceKey") serviceKey: String?,
+        @Query("pageNo") pageNo: Int,
+        @Query("numOfRows") numOfRows: Int,
+        @Query("resultType") resultType : String
+    ): retrofit2.Call<ItemListModel2>
 
 }

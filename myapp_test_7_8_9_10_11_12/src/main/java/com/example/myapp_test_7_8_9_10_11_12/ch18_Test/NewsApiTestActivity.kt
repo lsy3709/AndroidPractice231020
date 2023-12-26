@@ -40,7 +40,7 @@ class NewsApiTestActivity : AppCompatActivity() {
             val QUERY2 = "Apple"
         val from ="2023-10-10"
         val sortBy ="popularity"
-        val API_KEY = "87af28a1123a4fcc9c869c0b81bd243c"
+        val API_KEY = "fe6b8272a4ae4dcfb3fd06a5b40561ab"
         val userListCall = networkService.getList(QUERY2,from,sortBy,API_KEY)
 
         //변경3

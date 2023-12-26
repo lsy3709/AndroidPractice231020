@@ -14,6 +14,7 @@ class MyApplication3 : Application(){
         val BASE_URL = "https://apis.data.go.kr/6260000/"
 
 
+
         //add....................................
         var networkService: INetworkService3
         val retrofit: Retrofit

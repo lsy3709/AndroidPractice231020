@@ -21,7 +21,7 @@
 <!--    com.example.myapp_test_7_8_9_10_11_12.ch11_12_Test.tabTest-->
 
     <application
-        android:name=".ch18_Test.retrofit.MyApplication4"
+        android:name=".ch18_Test.retrofit.MyApplication3"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="액션바테스트"
