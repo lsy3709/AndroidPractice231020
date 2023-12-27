@@ -35,7 +35,7 @@ class MyApplication3 : Application(){
             .build()
         init {
             networkService = retrofit.create(INetworkService3::class.java)
-            networkService2 = retrofit.create(INetworkService2::class.java)
+            networkService2 = retrofit2.create(INetworkService2::class.java)
         }
 
 

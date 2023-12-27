@@ -301,6 +301,7 @@ class PublicDataTestActivity : AppCompatActivity() {
                     // 인자값은 : 현재 context : this@HttpTestReqResActivity
                     // 2번째 인자값은 : 데이터 , 네트워크 ,레트로핏2 통신으로 받아온 데이터 리스트
 
+                    layoutManager.orientation = LinearLayoutManager.HORIZONTAL
                     //변경7
                     binding.retrofitRecyclerView5.layoutManager = layoutManager
                     // 변경9
